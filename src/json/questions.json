@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Can you change how people think with with weird geometry?",
+    "image": "./images/home/e.jpg",
+    "activeProject": "e"
+  },
+  {
+    "title": "Is it possible to have a dialog with bacteria?",
+    "image": "./images/home/c.png",
+    "activeProject": "c"
+  },
+  {
+    "title": "What does a future digital 3D studio look like?",
+    "image": "./images/home/a.png",
+    "activeProject": "a"
+  },
+  {
+    "title": "Are there useful tools that can be built on top of Are.na?",
+    "image": "./images/home/d.png",
+    "activeProject": "d"
+  },
+  {
+    "title": "Is machine learning useful for building aesthetic references?",
+    "image": "./images/home/f.jpg",
+    "activeProject": "f"
+  }
+]
