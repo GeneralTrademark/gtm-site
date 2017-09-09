@@ -5,8 +5,8 @@ import intro from '../markdown/intro.md'
 
 const Intro = (props) => {
   return (
-    <section className='intro'>
-      <Markdown source={intro} />
+    <section className={props.activeImage ? 'intro' : 'intro'}>
+      <Markdown className={'introText'} source={intro}/>
     </section>
   )
 }

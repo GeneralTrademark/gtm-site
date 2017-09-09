@@ -9,6 +9,8 @@ Environment, nutrients, and genetic makeup are all confounding variables in the 
 
 ![bacteria expressing on the plate illuminator](/images/c/01.png)
 
+1.
+
 ### __Plate illuminator__
 
 The plate illuminator was designed to be a compact prototype to allow the researchers at Danino Lab to make time lapse videos of the bacterial growth. We developed an open source plate illuminator using simple 3D printing parts and accessible electronics.
@@ -21,6 +23,8 @@ We are currently on v0.1 and developing v0.2 to enable better stable time lapses
 
 ![bacteria expressing on the plate illuminator](/images/c/05.jpg)
 ![bacteria expressing on the plate illuminator](/images/c/02.jpeg)
+
+2.
 
 ### __Time lapse & Image analysis__
 

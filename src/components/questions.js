@@ -5,8 +5,13 @@ const Questions = (props) => {
     return (
       props.data.map((item, i) => {
         return (
-          <li key={i} onMouseOver={(e) => props.handleMouseOver(item.image)} onMouseOut={props.handleMouseOut} onClick={(e) => props.openQuestion(item.title, item.activeProject)}>
-            <a>{item.title}</a>
+          <li
+            key={i}
+            onTouchStart={(e) => props.handleMouseOver(item.image, item.sub, i)}
+            onMouseOver={(e) => props.handleMouseOver(item.image, item.sub, i)}
+            onMouseOut={props.handleMouseOut}>
+            {/* <a onMouseOver={(e) => props.handleMouseOver(item.image)} onMouseOut={props.handleMouseOut} onClick={(e) => props.openQuestion(item.title, item.activeProject)}>{item.title}</a> */}
+            <span className={props.mouseKey === i ? 'blue' : ''}>{item.title}</span>
           </li>
         )
       })
@@ -15,10 +20,10 @@ const Questions = (props) => {
 
   return (
     <section className='asking'>
-      <span>Currently asking:</span>
-      <ul>
+      <span className='askingTitle'>Currently asking:</span>
+      <ol>
         {makeQuestion()}
-      </ul>
+      </ol>
     </section>
   )
 }

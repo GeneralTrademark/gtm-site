@@ -5298,6 +5298,26 @@ react-router@^4.1.1:
     prop-types "^15.5.4"
     warning "^3.0.0"
 
+react-text-cycle@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/react-text-cycle/-/react-text-cycle-0.0.3.tgz#7f0e2501b5ddde1ab81534ea94e28b46ddb14047"
+
+react-typing@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-typing/-/react-typing-1.0.0.tgz#523a27025992c94e3604caf5280d6e880ebd2b46"
+
+react-typist-cycle@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-typist-cycle/-/react-typist-cycle-0.1.2.tgz#d5fac8ded22ce29dec6df145a238a03d4c098a86"
+  dependencies:
+    react-typist "^1.1.0"
+
+react-typist@^1.1.0, react-typist@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-typist/-/react-typist-1.1.1.tgz#3b651f8c89ce240f80afbd63038c1bcb113accf4"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-url-query@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-url-query/-/react-url-query-1.2.0.tgz#35e4985ec6172cab257ac6d0d33cd4051a4c8fe8"

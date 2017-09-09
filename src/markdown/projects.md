@@ -1,9 +1,9 @@
 Web/App
-* [arena.tv ↗](https://www.google.com)
-* [arena.print ↗](https://www.google.com)
+* [arena.tv ↗](https://arenatv.now.sh)
+* [arena.print (alpha) ↗](https://printarena.now.sh)
 
 Object
-* [printer ↗](http://printer.generaltrademark.com/)
+* [printer ↗](http://printer.gtm.nyc/)
 * [cube ↗](https://store.leibal.com/products/cubic-cable-holder)
 
 Research

@@ -1,15 +1,19 @@
 __How we work:__
 
-We use questions as the basis for all the work we do. In the process of answering those questions, we build tools along the way. Those tools are the outcomes and products that we deliver. They range from digital products to prototypes to manufacturing systems and beyond.
+We use questions as the basis for all the work we do. To answer those questions, we build tools. They range from digital products, to machines, to manufacturing systems and beyond. The tools and their output are our deliverables.
 
 We work best when solving problems that combine hardware, software and infrastructure.
 
 __Hire us to:__
 
-* Prototype a new product category  
+* Analyze objects with machine learning
 * Build a next generation manufacturing system  
 * Research and prototype a new digital curriculum  
 * Invent a new operating system  
+
+__Who we are:__
+
+General Trademark is [Callil Capuozzo](callil.com) and [Gavin Atkinson](http://www.gav.space/) with a network of designers, strategists, and developers.
 
 __Get in touch:__
 

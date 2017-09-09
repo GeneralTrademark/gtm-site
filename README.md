@@ -1,1 +1,3 @@
-General Trademark web presence.
+__General Trademark web presence.__
+
+General studio overview and project description.

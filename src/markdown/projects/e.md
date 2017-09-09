@@ -9,6 +9,7 @@
 ![alt text](/images/e/e.jpg)
 ![alt text](/images/e/f.jpg)
 
+1.
 
 ### __Research__
 
@@ -20,6 +21,7 @@ Forms created by nodes are similar to those seen in bubbles for instance.
 
 ![https://en.wikipedia.org/wiki/Foam#/media/File:Foam_-_big.jpg](/images/home/e.jpg)
 
+2.
 
 ### __Manufacturing__
 

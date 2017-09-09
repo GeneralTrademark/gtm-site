@@ -1,7 +1,7 @@
 ### __What does a future digital 3D studio look like?__
 
 * ###### Areas of focus: **3D printing, Prototyping, Research, VR, AR**
-* ###### Documentation: **[Github](http://github.com)**
+* ###### Documentation: **[Onshape](https://cad.onshape.com/documents/aa6df9fcb0442f0e574d1768/w/023c05333f0a668d9ace00e2/e/2eafd52456d9f80f2a8b06ac)**
 
 Making digital 3D things is too hard. It requires in-depth knowledge of CAD/Modeling programs, experience 3D printing and an education in engineering or industrial design.
 
@@ -9,7 +9,9 @@ What would change if it were more direct and accessible.
 
 Advances in VR modeling, AR tools and 3D printing make it possible to design a closed loop system to manifest a concept much more easily.
 
-<!-- ![alt text](/images/a/02.jpg) -->
+![alt text](/images/a/02.jpeg)
+
+1.
 
 ### __m01 printer__
 
@@ -28,8 +30,9 @@ Its feature set is designed to allow rapid iteration of objects up to 1ft^3 at 3
 
 The goal is to combine this ability with a toolset that brings modeling tools into the studio setting at large, not just confined to the designers screen.
 
-### __A weird 3D world && a weird 3D studio__
+### __A weird 3D world & A weird 3D studio__
 
+2.
 
 A work in progress to develop a working studio environment heavily inspired by [Evelyn Eastmond at eleVR](http://elevr.com/prototyping-stack-space/) and [Brett Victor](http://worrydream.com/SeeingSpaces/).
 
