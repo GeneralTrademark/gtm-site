@@ -7,6 +7,7 @@
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.13",
     "react-scrollchor": "^4.0.0",
+    "react-svg": "^2.1.22",
     "react-text-loop": "^1.1.0"
   },
   "scripts": {
