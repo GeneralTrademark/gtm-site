@@ -43,15 +43,6 @@ class App extends Component {
         <p>We work best when solving problems that combine hardware, software and infrastructure.</p>
 
       </div>
-      {/* <div className='hire'>
-        <p className='header'>Hire us to...</p>
-        <ol>
-          <li>Build front end experiences for complex ideas.</li>
-          <li>Think about machine learning for non traditional domains.</li>
-          <li>Build a next generation manufacturing system.</li>
-          <li>Invent a new operating system.</li>
-        </ol>
-      </div> */}
       <div className='projects' id='work'>
         <p className='header'>Recent Work</p>
         <img alt='' className='linkImage' src='images/02.jpg' />
@@ -70,15 +61,26 @@ class App extends Component {
           </li>
         </ol>
       </div>
-      <div className='who'>
+      <div className='hire'>
+        <p className='header'>Hire us to...</p>
+        <ol>
+          <li>Build front end experiences for complex ideas.</li>
+          <li>Think about machine learning for non traditional domains.</li>
+          <li>Build a next generation manufacturing system.</li>
+          <li>Invent a new operating system.</li>
+        </ol>
+      </div>
+      {/* <div className='who'>
         <p className='header'>Human beans</p>
         <p>General Trademark is <a href='http://callil.com'>Callil Capuozzo</a> and <a href='http://gav.space'>Gavin Atkinson</a>. We are supported by a network of designers, developers and writers in addition to organizations like <a href='http://learning-gardens.co/'>Learning Gardens.</a></p>
-        {/* <div className='image'>
+        <div className='image'>
           <img alt='' src='images/e.jpg' />
-        </div> */}
-      </div>
+        </div>
+      </div> */}
       <div className='contact' id='info'>
-        <p className='header'>Get in touch</p>
+          <p className='header'>Get in touch</p>
+        <p>General Trademark is <a href='http://callil.com'>Callil Capuozzo</a> and <a href='http://gav.space'>Gavin Atkinson</a>. We are supported by a network of designers, developers and writers in addition to organizations like <a href='http://learning-gardens.co/'>Learning Gardens.</a></p>
+
         <p>84 Withers St. Brooklyn, NY 11221</p>
         <p><a href='mailto:info@generaltrademark.com'>info@generaltrademark.com</a></p>
         <p>
