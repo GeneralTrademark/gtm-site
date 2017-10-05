@@ -1,0 +1,50 @@
+
+aside#pageWrap{
+  overflow-y: scroll;
+  height: 100vh;
+  width: 50vw;
+  top: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+aside#pageWrap:nth-child(1){
+  transform: translateX(0vw);
+  border-left-width: 1px;
+  border-left-style: solid;
+
+}
+
+aside#pageWrap:nth-child(2){
+  transform: translateX(50vw);
+  border-left-width: 1px;
+  border-left-style: solid;
+}
+
+div#wrap {
+}
+
+ol, ul{
+  margin-left: 0;
+}
+
+
+li{
+  padding-bottom: 1rem;
+}
+
+section{
+  padding: 3rem;
+}
+
+section.tile{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+  background-color: $silver;
+}

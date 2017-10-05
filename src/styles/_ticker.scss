@@ -1,0 +1,41 @@
+
+/*TICKER*/
+
+.ticker{
+  width: 100vw;
+  /*height: 30px;*/
+  max-width: 100%;
+  white-space: nowrap;
+  z-index: -999;
+  background-color:black;
+  color: white;
+  position: relative;
+  top: 0px;
+  left: 0;
+  padding-left: 1rem;
+  padding: 0;
+  font-size: 12px;
+
+}
+.ticker p{
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+}
+
+.ticker a{
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+}
+
+.tickerText{
+  width: 2000px;
+  flex-wrap: nowrap;
+  animation: tickers 50s linear infinite;
+}
+
+@keyframes tickers {
+  from {transform: translateX(0vw); }
+  to {transform: translateX(-3000px); }
+}

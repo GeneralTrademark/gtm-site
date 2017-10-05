@@ -1,0 +1,63 @@
+{
+  "studioName":"General Trademark",
+  "address":"84 Withers St. Brooklyn, NY 11221",
+  "email":"info@generaltrademark.com",
+  "github":"https://github.com/GeneralTrademark/",
+  "twitter":"https://twitter.com/general_bot",
+  "are.na":"https://www.are.na/callil-capuozzo/gtm-reference",
+  "Instagram":"https://www.instagram.com/generaltrademark/",
+  "whatDo0":"We are a product R&D studio.",
+  "whatDo1":"We answer questions by doing hands-on research & development with organizations, labs, start-ups and companies.",
+  "whatDo2":"k",
+  "whatDo3":"We work best when solving problems that combine hardware, software and infrastructure.",
+  "hireUsTo":[
+    "Build front end experiences for complex ideas.",
+    "Apply machine learning to creative domains.",
+    "Develop a next-generation on-demand 3D printing fullfillment system.",
+    "Invent UX for a personal server.",
+    "Design a physical case for a speculative computer."
+  ],
+  "recentWork":[
+    {
+      "name": "are.na TV",
+      "key": "tv",
+      "href": "https://arenatv.now.sh/",
+      "question":""
+    },
+    {
+      "name": "Print Are.na",
+      "key": "pa",
+      "href": "https://printarena.now.sh/",
+      "question":""
+    },
+    {
+      "name": "M-01 Printer",
+      "key": "pr",
+      "href": "https://arenatv.now.sh/",
+      "question":""
+    },
+    {
+      "name": "Imbedded Forms",
+      "key": "if",
+      "href": "https://arenatv.now.sh/",
+      "question":""
+    },
+    {
+      "name": "Urbit User Interface",
+      "key": "ur",
+      "href": "https://arenatv.now.sh/",
+      "question":""
+    }
+  ],
+  "humanBeans":[
+    {
+      "name":"Gavin Atkinson",
+      "website":"http://gav.space"
+    },
+    {
+      "name":"Callil Capuozzo",
+      "website":"http://callil.com/"
+    }
+  ],
+  "humanBeansBio":"General Trademark is Callil Capuozzo and Gavin Atkinson. We are supported by a network of designers, developers, writers and organizations like Learning Gardens."
+}
