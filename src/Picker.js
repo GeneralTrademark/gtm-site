@@ -23,8 +23,9 @@ export default class Picker extends Component {
    createPicker = () => {
      const bigBubbleRadius = 24
      const smallBubbleRadius = 14
+     const hugeBubbleRadius = 32
 
-     const colors = ["#1a1334", "#26294a", "#01545a", "#017351", "#03c383", "#aad962","#fbbf45", "#ef6a32", "#ed0345", "#a12a5e", "#710162", "#110141"]
+     const colors = ["black", "#26294a", "#01545a", "#017351", "#03c383", "#aad962","#fbbf45", "#ef6a32", "#ed0345", "#a12a5e", "#710162", "#110141"]
      const homeX = 50
      const homeY = 0 + 50
      const node = select(this.node)
@@ -51,7 +52,9 @@ export default class Picker extends Component {
   			.attr("cy", homeY)
   			.attr("r", smallBubbleRadius)
         .on("click",  setColor)
-        .style("fill", (d, i) => {return colorScale(i)})
+        .on("mouseover", colorOnMouseOver)
+        .on("mouseout", colorOnMouseOut)
+        .style("fill", (d, i) => {return colorScale(i)});
 
     node.append("circle")
      .attr("class", "centerCircle")
@@ -69,6 +72,21 @@ export default class Picker extends Component {
     function setColor(){
       let color = this.style.fill
       that.props.setColor(color)
+    }
+
+    function colorOnMouseOver() {
+      if (that.state.isOpen){
+        select(this).transition().attr("r", hugeBubbleRadius);
+      } else{
+        select(this).transition().attr("r", smallBubbleRadius);
+      }
+    }
+
+
+    function colorOnMouseOut() {
+      if (that.state.isOpen){
+        select(this).transition().attr("r", bigBubbleRadius);
+      }
     }
 
     function togglePicker() {
