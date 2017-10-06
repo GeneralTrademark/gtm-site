@@ -1,10 +1,18 @@
 #D3{
-  width: 100vw;
+  width: 100px;
   height: 100vh;
   position: absolute;
   top:0;
-  left:0;
-  z-index: 800;
+  right:0;
+  z-index: 400;
   display: block;
-  pointer-events: none;
+  pointer-events: visible;
+}
+
+.centerCircle:hover{
+  cursor: pointer;
+}
+
+.flyCircle:hover{
+  cursor:pointer;
 }

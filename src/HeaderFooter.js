@@ -17,7 +17,8 @@ function Footer(props) {
 function Picker(props) {
   return(
     <div id={'pickerContainer'}>
-      <div id={'picker'} style={{backgroundColor: props.color}} />
+      {//<div id={'picker'} style={{backgroundColor: props.color}} />
+      }
     </div>
   )
 }

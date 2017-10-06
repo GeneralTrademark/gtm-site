@@ -15,7 +15,7 @@ export default class Main extends Component {
     super(props)
     this.state = {
       viewKey:  'ABOUT',
-      color:    'blue',
+      color:    'black', // any color format
       innerWidth: 0,
       innerHeight: 0,
     }
@@ -30,6 +30,10 @@ export default class Main extends Component {
 
   setGlobalState = (key, value) => {
     this.setState({key, value})
+  }
+
+  setColor = (color) => {
+    this.setState({color:color})
   }
 
   toggleViewKey = (e, currentViewKey) => {
@@ -66,10 +70,15 @@ export default class Main extends Component {
         lineWidth: 2,
       },
     }
+
+    const viewport = {
+      innerWidth: this.state.innerWidth,
+      innerHeight: this.state.innerHeight,
+    }
     return (
       <body id={'trueAndRightfulBody'} style={colorMap}>
         <Header color={color}/>
-        <Picker setGlobalState={this.setGlobalState} color={color}/>
+        <Picker setColor={this.setColor} color={color} viewport={viewport}/>
         <main>
           <Page contentKey={'ABOUT'} {...globalProps}/>
           <Page contentKey={'WORK'} {...globalProps}/>
