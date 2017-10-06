@@ -1,0 +1,49 @@
+header{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 200;
+  height: 81px;
+  background-color: transparent;
+}
+
+#pickerContainer{
+  align-self: flex-end;
+  margin-right: $large_padding;
+  height: 33px;
+  display: flex;
+  align-items: center;
+
+}
+
+#picker{
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 40px;
+  transition: transform 300ms;
+  will-change: transform;
+}
+
+#picker:hover{
+  cursor: pointer;
+  transform: scale(1.33);
+}
+
+////FOOTER//////////////////////////////////////////////////////////////////////
+
+footer{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  z-index: 999;
+  height: 0px;
+  background-color: black;
+}

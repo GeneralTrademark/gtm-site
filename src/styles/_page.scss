@@ -1,6 +1,6 @@
 
 aside#pageWrap{
-  overflow-y: scroll;
+  overflow: hidden;
   height: 100vh;
   width: 50vw;
   top: 0;
@@ -21,6 +21,10 @@ aside#pageWrap:nth-child(2){
 }
 
 div#wrap {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
 }
 
 ol, ul{
@@ -33,7 +37,7 @@ li{
 }
 
 section{
-  padding: 3rem;
+  padding: $large_padding;
 }
 
 section.tile{
@@ -47,4 +51,25 @@ img{
   max-width: 100%;
   height: auto;
   background-color: $silver;
+}
+
+//// CANVAS ////////////////////////////////////////////////////////////////////
+
+#sketchFrame{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 500;
+  top:0;
+  left:0;
+  pointer-events: auto;
+}
+
+.canvasContainer{
+}
+
+#sketchFrame div {
+}
+
+canvas{
 }

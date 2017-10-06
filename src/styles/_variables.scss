@@ -6,6 +6,8 @@ $blue:      rgb(0, 33, 255);
 $lightBlue: rgb(80, 129, 255);
 $silver:    silver;
 
+$large_padding: 3rem;
+
 /////// Atomics ////////////////////////////////////////////////////////////////
 
 .noNum{
@@ -74,7 +76,7 @@ h1:after{
   content:'™';
   font-size: 12px;
   top: -10px;
-  left: 5px;
+  left: 1px;
   position: relative;
 }
 
