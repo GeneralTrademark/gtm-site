@@ -1,0 +1,22 @@
+<svg width="63" height="65" viewBox="0 0 63 65" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>
+    Frame
+  </title>
+  <desc>
+    Created using Figma
+  </desc>
+  <g transform="translate(273 275)">
+    <clipPath id="a" clip-rule="evenodd">
+      <path d="M-273-275h63v65h-63v-65z" fill="#FFF"/>
+    </clipPath>
+    <g clip-path="url(#a)">
+      <path d="M-273-275h63v65h-63v-65z" fill="#FFF"/>
+      <use xlink:href="#b" transform="rotate(90 3 -246)"/>
+      <use xlink:href="#c" transform="scale(.99852 1.00148) rotate(-45 -399.183 197.23)"/>
+    </g>
+  </g>
+  <defs>
+    <path id="b" d="M0 0h37v-1.5H0V0z"/>
+    <path id="c" d="M0 19.53h-.75v.75H0v-.75zm19.53-.75H0v1.5h19.53v-1.5zm-18.78.75V0h-1.5v19.53h1.5z"/>
+  </defs>
+</svg>

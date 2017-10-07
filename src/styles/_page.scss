@@ -53,6 +53,27 @@ img{
   background-color: $silver;
 }
 
+#downArrowContainer{
+  width: 64px;
+  height: 64px;
+  bottom: $large_padding;
+  right: $large_padding;
+}
+
+#downArrow{
+  transition: transform 300ms, opacity 250ms;
+}
+
+.slideIn{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slideOut{
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
 //// CANVAS ////////////////////////////////////////////////////////////////////
 
 #sketchFrame{

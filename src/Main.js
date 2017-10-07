@@ -61,6 +61,7 @@ export default class Main extends Component {
     const globalProps = {
       viewKey:this.state.viewKey,
       data,
+      color,
       setGlobalState:this.setGlobalState,
       sketchProps: {
         height:this.state.innerHeight,
