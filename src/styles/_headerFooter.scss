@@ -11,29 +11,6 @@ header{
   background-color: transparent;
 }
 
-#pickerContainer{
-  align-self: flex-end;
-  margin-right: $large_padding;
-  height: 33px;
-  display: flex;
-  align-items: center;
-
-}
-
-#picker{
-  width: 20px;
-  height: 20px;
-  display: block;
-  border-radius: 40px;
-  transition: transform 300ms;
-  will-change: transform;
-}
-
-#picker:hover{
-  cursor: pointer;
-  transform: scale(1.33);
-}
-
 ////FOOTER//////////////////////////////////////////////////////////////////////
 
 footer{

@@ -6,6 +6,7 @@ import {SketchField, Tools} from 'react-sketch'
 import Page from './Page'
 import {Header, Footer} from './HeaderFooter'
 import Picker from './Picker'
+import ColorLens from './ColorLens'
 import data from './data/data.json'
 
 const BREAKPOINT = 769
@@ -16,6 +17,7 @@ export default class Main extends Component {
     this.state = {
       viewKey:  'ABOUT',
       color:    'black', // any color format
+      colorList: ["black", "#26294a", "#01545a", "#017351", "#03c383", "#aad962","#fbbf45", "#ef6a32", "#ed0345", "#a12a5e", "#710162", "#110141"],
       innerWidth: 0,
       innerHeight: 0,
     }
@@ -33,7 +35,9 @@ export default class Main extends Component {
   }
 
   setColor = (color) => {
-    this.setState({color:color})
+    if (color !== this.state.color){
+      this.setState({color:color})
+    }
   }
 
   toggleViewKey = (e, currentViewKey) => {
@@ -78,9 +82,9 @@ export default class Main extends Component {
     }
     return (
       <body id={'trueAndRightfulBody'} style={colorMap}>
-        <Header color={color}/>
-        <Picker setColor={this.setColor} color={color} viewport={viewport}/>
+        <Header color={color} colorList={this.state.colorList}/>
         <main>
+          <ColorLens setColor={this.setColor}/>
           <Page contentKey={'ABOUT'} {...globalProps}/>
           <Page contentKey={'WORK'} {...globalProps}/>
         </main>

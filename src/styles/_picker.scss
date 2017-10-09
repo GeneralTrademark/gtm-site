@@ -1,12 +1,67 @@
+#pickerContainer{
+  align-self: flex-end;
+  margin-right: $large_padding;
+  height: 33px;
+  display: flex;
+  align-items: center;
+
+}
+
+#picker{
+  width: 12px;
+  height: 12px;
+  display: block;
+  border-radius: 40px;
+  transition: transform 300ms;
+  will-change: transform;
+}
+
+#picker:hover{
+  cursor: pointer;
+  transform: scale(1.33);
+}
+
+/////
+
 #D3{
-  width: 100px;
+  width: 50vw;
   height: 100vh;
   position: absolute;
   top:0;
-  right:0;
-  z-index: 400;
+  left:50vw;
+  z-index: 500;
+  // display: block;
+  // pointer-events: visible;
+  clip-path: circle(40.0% at 50% 50%);
+}
+
+#crosshair{
+  position: absolute;
   display: block;
-  pointer-events: visible;
+  top: 50vh;
+  left: 25vw;
+  background-image: url('./assets/crosshair.svg');
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+
+}
+
+canvas#colorLens{
+  filter:blur(20px);
+  cursor: grab;
+}
+
+canvas#colorLens:active{
+  cursor:grabbing;
+
+}
+
+.water{
+  background-color: blue;
+  fill:blue;
 }
 
 .centerCircle:hover{
@@ -15,4 +70,11 @@
 
 .flyCircle:hover{
   cursor:pointer;
+}
+
+////
+
+.swatch{
+  position: absolute;
+  display: block;
 }

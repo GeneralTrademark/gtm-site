@@ -3,7 +3,6 @@ import React from 'react'
 function Header(props) {
   return (
     <header>
-      <Picker {...props}/>
     </header>
   )
 }
@@ -15,10 +14,26 @@ function Footer(props) {
 }
 
 function Picker(props) {
-  return(
-    <div id={'pickerContainer'}>
-      {//<div id={'picker'} style={{backgroundColor: props.color}} />
+  function makeColors() {
+    return props.colorList.map((color, i) => {
+      const height = (i * 5) + 10
+      const width = (i * 10) + 10
+      const offset = (i * 20) - 10
+      const style = {
+        backgroundColor: color,
+        transform: `translateY(${offset}px)`,
+        height: `${height}px`,
+        width: `${width}px`,
       }
+      return ( <div className={'swatch'} style={style} />)
+    })
+  }
+  return(
+    <div id={'pickerContainer'} className={'rel'}>
+      <div id={'picker'} style={{backgroundColor: props.color}} />
+      <div id={'pickerDropdown'} className={'abs'}>
+        {makeColors()}
+      </div>
     </div>
   )
 }
