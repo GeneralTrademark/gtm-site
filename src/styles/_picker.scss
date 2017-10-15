@@ -1,10 +1,9 @@
 #pickerContainer{
-  align-self: flex-end;
+  position: fixed;
   margin-right: $large_padding;
   height: 33px;
   display: flex;
   align-items: center;
-
 }
 
 #picker{
@@ -26,13 +25,12 @@
 #D3{
   width: 50vw;
   height: 100vh;
-  position: absolute;
   top:0;
-  left:50vw;
-  z-index: 500;
-  // display: block;
-  // pointer-events: visible;
+  right:0;
+  z-index: 999;
+  pointer-events: visible;
   clip-path: circle(40.0% at 50% 50%);
+  will-change: opacity;
 }
 
 #crosshair{
@@ -50,7 +48,7 @@
 }
 
 canvas#colorLens{
-  filter:blur(20px);
+  filter:blur(10px);
   cursor: grab;
 }
 
@@ -59,10 +57,6 @@ canvas#colorLens:active{
 
 }
 
-.water{
-  background-color: blue;
-  fill:blue;
-}
 
 .centerCircle:hover{
   cursor: pointer;

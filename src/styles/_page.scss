@@ -38,6 +38,7 @@ li{
 
 section{
   padding: $large_padding;
+  min-width: 50vw;
 }
 
 section.tile{
@@ -54,8 +55,8 @@ img{
 }
 
 #downArrowContainer{
-  width: 64px;
-  height: 64px;
+  width: 32px;
+  height: 42px;
   bottom: $large_padding;
   right: $large_padding;
 }
@@ -64,33 +65,14 @@ img{
   transition: transform 300ms, opacity 250ms;
 }
 
-.slideIn{
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.slideOut{
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
 //// CANVAS ////////////////////////////////////////////////////////////////////
 
 #sketchFrame{
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 600;
+  z-index: 500; //reminder this is important
   top:0;
   left:0;
   pointer-events: all;
-}
-
-.canvasContainer{
-}
-
-#sketchFrame div {
-}
-
-canvas{
 }

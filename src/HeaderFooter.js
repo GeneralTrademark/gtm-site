@@ -1,8 +1,11 @@
 import React from 'react'
 
-function Header(props) {
+function Header({toggleDrawMode, color}) {
   return (
     <header>
+      <div id={'dotWrapper'} >
+        <button style={{backgroundColor:color}} id={'dot'} onClick={toggleDrawMode} />
+      </div>
     </header>
   )
 }

@@ -5,10 +5,8 @@ import classnames from 'classnames'
 import {SketchField, Tools} from 'react-sketch'
 import Page from './Page'
 import {Header, Footer} from './HeaderFooter'
-import Picker from './Picker'
-import ColorLens from './ColorLens'
+import ColorLensII from './ColorLensII'
 import data from './data/data.json'
-
 const BREAKPOINT = 769
 
 export default class Main extends Component {
@@ -17,9 +15,9 @@ export default class Main extends Component {
     this.state = {
       viewKey:  'ABOUT',
       color:    'black', // any color format
-      colorList: ["black", "#26294a", "#01545a", "#017351", "#03c383", "#aad962","#fbbf45", "#ef6a32", "#ed0345", "#a12a5e", "#710162", "#110141"],
       innerWidth: 0,
       innerHeight: 0,
+      drawMode: false,
     }
   }
 
@@ -32,6 +30,14 @@ export default class Main extends Component {
 
   setGlobalState = (key, value) => {
     this.setState({key, value})
+  }
+
+  toggleDrawMode = (currentState) => {
+    this.setState({drawMode: !currentState})
+    // drawmode includes:
+    // - showing colorpicker
+    // - changing cursor to crosshair
+    // - uhhhh
   }
 
   setColor = (color) => {
@@ -63,14 +69,14 @@ export default class Main extends Component {
     }
 
     const globalProps = {
-      viewKey:this.state.viewKey,
+      viewKey: this.state.viewKey,
       data,
       color,
-      setGlobalState:this.setGlobalState,
+      setGlobalState: this.setGlobalState,
       sketchProps: {
-        height:this.state.innerHeight,
-        width:this.state.innerWidth * 0.5000,
-        tool:Tools.Pencil,
+        height: this.state.innerHeight,
+        width: this.state.innerWidth * 0.5000,
+        tool: Tools.Pencil,
         lineColor: color,
         lineWidth: 2,
       },
@@ -82,9 +88,12 @@ export default class Main extends Component {
     }
     return (
       <body id={'trueAndRightfulBody'} style={colorMap}>
-        <Header color={color} colorList={this.state.colorList}/>
+        <Header
+          toggleDrawMode={() => this.toggleDrawMode(this.state.drawMode)}
+          color={color}
+          colorList={this.state.colorList}/>
+        <ColorLensII setColor={this.setColor} drawMode={this.state.drawMode}/>
         <main>
-          <ColorLens setColor={this.setColor}/>
           <Page contentKey={'ABOUT'} {...globalProps}/>
           <Page contentKey={'WORK'} {...globalProps}/>
         </main>

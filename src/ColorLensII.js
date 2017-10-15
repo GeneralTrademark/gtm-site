@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
-import d3, { event, behavior, drag, scaleLinear, mouse, json, hsl } from 'd3'
-import {interpolateCubehelixLong, interpolateCubehelix} from 'd3-interpolate'
-import { scaleOrdinal } from 'd3-scale'
-import {  } from 'd3-array'
+import { drag, mouse} from 'd3'
 import { select } from 'd3-selection'
-import { geoPath, geoOrthographic, geoGraticule } from 'd3-geo'
-import { cubehelix, rgb } from 'd3-color'
+import { geoPath, geoOrthographic, geoCircle} from 'd3-geo'
+import classnames from 'classnames'
 
 import {versor} from './helpers/versor.js'
 
@@ -35,7 +32,7 @@ export default class Picker extends Component {
 
 
     var projection = geoOrthographic()
-      .scale(height * 0.4)
+      .scale(height * 0.5)
       .translate(center)
       .precision(0.1);
 
@@ -67,36 +64,29 @@ export default class Picker extends Component {
       projection.rotate(r1);
       render();
     }
+
     function dragEnded(){
-
+      let p = context.getImageData(center[0], center[1], 1, 1).data
+      let newColor = `rgb(${p[0]},${p[1]},${p[2]})`
+      that.props.setColor(newColor)
+      console.log(newColor)
     }
-    var sphere = {type: "Sphere"}
-    const graticule = geoGraticule()
-    var colorArr = ["#000", "#26294a", "#01545a", "#017351", "#03c383", "#aad962","#fbbf45", "#ef6a32", "#710162", "#710162"]
 
-    var colorScale = scaleLinear()
-      .domain([.1, .2, .3, .4, .5, .6, .7])
-      .range(colorArr)
-      .interpolate(interpolateCubehelix);
+    let c = geoCircle().radius(90)
 
-    var ticks = colorScale.ticks(20)
-    let tl = ticks.length * 0.5
-
-    let tickMap = ticks.map((t, i) => {
-      let q = i + 1
-      let ll = {W: 0.0, N: (90 / tl) * (tl - i) +0.5, E: 360, S: (90 / tl) * (tl- q) };
-      return geoGraticule().extentMajor([[ll.W, ll.S], [ll.E, ll.N]])
-    })
-
+    context.globalCompositeOperation = 'soft-light';
+    context.filter = 'blur(120px)';
 
     // context.filter = 'blur(10px)'
     render = function() {
       context.clearRect(0, 0, window.innerWidth, window.innerHeight)
-      tickMap.forEach((g, i) => { context.beginPath(), path(g.outline()), context.fillStyle = colorScale(ticks[i]), context.fill() });
-      let p = context.getImageData(center[0], center[1], 1, 1).data
-      // let newColor = `rgb(${p[0]},${p[1]},${p[2]})`
-      // that.props.setColor(newColor)
-    };
+
+      context.beginPath(),  path(c.center([0,90])()), context.fillStyle = '#de2f00', context.fill() //North Pole
+      context.beginPath(),  path(c.center([0,-19.5])()), context.fillStyle = '#92da1d', context.fill()
+      context.beginPath(),  path(c.center([120,-19.5])()), context.fillStyle = '#155fee', context.fill()
+      context.beginPath(),  path(c.center([240,-19.5])()), context.fillStyle = '#7102c8', context.fill()
+
+    }
 
     render();
 
@@ -104,8 +94,12 @@ export default class Picker extends Component {
 
 
   render() {
+    let showPicker = classnames({
+      fadeIn: this.props.drawMode,
+      fadeOut: !this.props.drawMode,
+    })
     return (
-      <div id={'D3'} className={'abs'}>
+      <div id={'D3'} className={`abs ${showPicker}`}>
         <div id={'crosshair'} />
         <canvas id={'colorLens'} ref={node => this.node = node} width={window.innerWidth} height={window.innerHeight} />
       </div>

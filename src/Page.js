@@ -40,31 +40,34 @@ export default class Page extends Component {
       <aside id={'pageWrap'} className={'abs'}>
         <div id={'wrap'} className={'rel'} onMouseEnter={() => this.onMouseEnter()} onMouseLeave={() => this.onMouseLeave()}>
           <div id={'sketchFrame'} className={'abs'}>
-            <SketchField {...props.sketchProps}/>
+            <SketchField defaultDataType={'url'} defaultData={props.defaultData} {...props.sketchProps}/>
           </div>
           <div id={'contentFrame'} className={'abs'}>
             {content}
           </div>
           <div id={'downArrowContainer'} className={'abs'}>
-            <div id={'downArrow'} className={arrowStates} />
-
-            <svg id={'downArrow'} className={arrowStates}  width="63" height="65" viewBox="0 0 63 65">
-              <g transform="translate(273 275)">
-                <clipPath id="a" clip-rule="evenodd">
-                  <path d="M-273-275h63v65h-63v-65z" fill="#FFF"/>
-                </clipPath>
-                <g clip-path="url(#a)">
-                  <path d="M-273-275h63v65h-63v-65z" fill="#FFF"/>
-                  <use xlinkHref="#b" transform="rotate(90 3 -246)"/>
-                  <use xlinkHref="#c" transform="scale(.99852 1.00148) rotate(-45 -399.183 197.23)"/>
-                </g>
-              </g>
-              <defs>
-                <path fill={this.props.color} id="b" d="M0 0h37v-1.5H0V0z"/>
-                <path fill={this.props.color} id="c" d="M0 19.53h-.75v.75H0v-.75zm19.53-.75H0v1.5h19.53v-1.5zm-18.78.75V0h-1.5v19.53h1.5z"/>
-              </defs>
+            <svg id={'downArrow'} className={arrowStates} width="32" height="42" viewBox="0 0 32 42" version="1.1">
+            <g id="Canvas" transform="translate(-2474 -2083)">
+            <clipPath id="clip-0" clip-rule="evenodd">
+            <path d="M 2474 2083L 2506 2083L 2506 2125L 2474 2125L 2474 2083Z" fill="#FFFFFF"/>
+            </clipPath>
+            <g id="Frame" clip-path="url(#clip-0)">
+            <path d="M 2474 2083L 2506 2083L 2506 2125L 2474 2125L 2474 2083Z" fill="#FFFFFF"/>
+            <g id="Group">
+            <g id="Line">
+            <use xlinkHref="#path0_stroke" transform="matrix(6.66118e-17 1 -1 5.62873e-17 2489.14 2083)"/>
+            </g>
+            <g id="Rectangle">
+            <use xlinkHref="#path1_stroke" transform="matrix(0.717614 -0.696441 0.717614 0.696441 2475 2108.44)"/>
+            </g>
+            </g>
+            </g>
+            </g>
+            <defs>
+            <path fill={this.props.color} id="path0_stroke" d="M 0 0L 38.9474 0L 38.9474 -1.5L 0 -1.5L 0 0Z"/>
+            <path fill={this.props.color} id="path1_stroke" d="M 0 20.9026L -0.75 20.9026L -0.75 21.6526L 0 21.6526L 0 20.9026ZM 20.9026 20.1526L 0 20.1526L 0 21.6526L 20.9026 21.6526L 20.9026 20.1526ZM 0.75 20.9026L 0.75 0L -0.75 0L -0.75 20.9026L 0.75 20.9026Z"/>
+            </defs>
             </svg>
-
           </div>
         </div>
       </aside>
@@ -84,7 +87,7 @@ function About({viewKey, setGlobalState, data}) {
         <p>{data.whatDo1}</p>
       </section>
       <section>
-        <h2>{'Hire us to'}</h2>
+        <h2>{'For example, we can help you...'}</h2>
         <ol>
           {
             data.hireUsTo.map((i) => {
@@ -125,10 +128,15 @@ function Work({viewKey, setGlobalState, data}) {
         <ol className={'mp0-l'}>
           {
             data.recentWork.map((p) => {
-              return <ProjectTile p={p} />
+              return <p className={'mt4'}>{p.name}</p>
             })
           }
         </ol>
+      </section>
+      <section className={'flexBetween'}>
+        <div>{'◕'}</div>
+        <div>{'ᴗ'}</div>
+        <div>{'◕'}</div>
       </section>
     </aside>
   )
@@ -139,8 +147,7 @@ function ProjectTile({p}) {
   let rootPath = 'images/'
   return (
     <li className={'mp0-l mt4 noNum'}>
-      <p>{p.name}</p>
-      <img src={`${rootPath}${p.key}.jpg`}/>
+      <div>{p.name}</div>
     </li>
   )
 }

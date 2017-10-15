@@ -7,7 +7,7 @@
   "are.na":"https://www.are.na/callil-capuozzo/gtm-reference",
   "Instagram":"https://www.instagram.com/generaltrademark/",
   "whatDo0":"We are a product R&D studio.",
-  "whatDo1":"We answer questions by doing hands-on research & development with organizations, labs, start-ups and companies.",
+  "whatDo1":"We develop high fidelity prototypes to explore questions, make new tools to augment creativity, and research new technologies to better understand their impact and behavior. We partner with organizations and companies to build products where the imaginable and possible convene.",
   "whatDo2":"k",
   "whatDo3":"We work best when solving problems that combine hardware, software and infrastructure.",
   "hireUsTo":[
@@ -19,7 +19,7 @@
   ],
   "recentWork":[
     {
-      "name": "are.na TV",
+      "name": "Are.na TV",
       "key": "tv",
       "href": "https://arenatv.now.sh/",
       "question":""
@@ -37,13 +37,25 @@
       "question":""
     },
     {
-      "name": "Imbedded Forms",
+      "name": "FOAM Spatial Index",
       "key": "if",
       "href": "https://arenatv.now.sh/",
       "question":""
     },
     {
-      "name": "Urbit User Interface",
+      "name": "Urbit Wallet",
+      "key": "if",
+      "href": "https://arenatv.now.sh/",
+      "question":""
+    },
+    {
+      "name": "Dat OS",
+      "key": "if",
+      "href": "https://arenatv.now.sh/",
+      "question":""
+    },
+    {
+      "name": "Imbedded Forms",
       "key": "ur",
       "href": "https://arenatv.now.sh/",
       "question":""
