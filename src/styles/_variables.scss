@@ -14,8 +14,41 @@ $large_padding: 3rem;
   list-style: none;
 }
 
+.circleB{
+  border-radius: 3px;
+  display: block;
+  height: 35px;
+  border: none;
+  outline: none;
+  flex: 1;
+  pointer-events: all;
+  transition: 100ms;
+  margin-left: 1px;
+}
+
+.borderW{
+  border: 1px solid #444;
+}
+
+.circleB:hover{
+  cursor: pointer;
+  flex: 1.2;
+}
+
+.circleB:active{
+  flex: 1.4;
+}
+
+.mr05{
+  margin-right: 0.0rem;
+}
+
 .mt4{
   margin-top: 4rem;
+}
+
+.mt6{
+  margin-top: 6rem;
 }
 
 .flexList{
@@ -63,6 +96,19 @@ $large_padding: 3rem;
   transform: translateY(-10px);
 }
 
+.circleButton{
+  border-radius: 100px;
+  width: 20px;
+  height: 20px;
+  z-index: 999;
+  background-color: black;
+  color: black;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+}
+
 /////// Mixins /////////////////////////////////////////////////////////////////
 
 @mixin for-tablet-down {
@@ -70,15 +116,21 @@ $large_padding: 3rem;
 }
 
 /////// Type ///////////////////////////////////////////////////////////////////
+@font-face {
+ font-family: "NeueHaas";
+ src: url("./fonts/HaasGrotDisp-55Roman.otf");
+ font-weight:400;
+
+}
 
 * {
-  font-family: 'Arial', sans-serif;
+  font-family: 'NeueHaas', serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   line-height: 1.4;
-  letter-spacing: .05rem;
+  letter-spacing: .07rem;
   font-weight: 400;
-  font-family: sans-serif;
+  // font-family: sans-serif;
   font-size: 24px;
   color: inherit;
   border-color: inherit;
@@ -90,7 +142,7 @@ h1, h2, h3, img{
 
 
 ol{
-  margin-top: 4rem;
+  // margin-top: 4rem;
 }
 // Only used for logo
 h1{
@@ -99,7 +151,11 @@ h1{
   line-height: normal;
 }
 
-h1:after{
+h2{
+  margin-bottom: 2rem;
+}
+
+.tm:after{
   content:'™';
   font-size: 12px;
   top: -10px;

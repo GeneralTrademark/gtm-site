@@ -40,7 +40,7 @@ export default class Page extends Component {
       <aside id={'pageWrap'} className={'abs'}>
         <div id={'wrap'} className={'rel'} onMouseEnter={() => this.onMouseEnter()} onMouseLeave={() => this.onMouseLeave()}>
           <div id={'sketchFrame'} className={'abs'}>
-            <SketchField defaultDataType={'url'} defaultData={props.defaultData} {...props.sketchProps}/>
+            <SketchField {...props.sketchProps}/>
           </div>
           <div id={'contentFrame'} className={'abs'}>
             {content}
@@ -80,13 +80,13 @@ function About({viewKey, setGlobalState, data}) {
   return (
     <aside>
       <section className={'tile'}>
-        <h1>{data.studioName}</h1>
-        <h2>{data.whatDo0}</h2>
+        <h1 className={'tm'}>{data.studioName}</h1>
+        <h1>{data.whatDo0}</h1>
       </section>
       <section>
         <p>{data.whatDo1}</p>
       </section>
-      <section>
+      <section className={'mt6'}>
         <h2>{'For example, we can help you...'}</h2>
         <ol>
           {
@@ -96,11 +96,11 @@ function About({viewKey, setGlobalState, data}) {
           }
         </ol>
       </section>
-      <section>
+      <section className={'mt6'}>
         <h2>{'Human Beans'}</h2>
          {data.humanBeansBio}
       </section>
-      <section className={'flexList'}>
+      <section className={'flexList mt6'}>
         <h2>{'Contact:'}</h2>
          {data.address}
          <a href={data.github}>{'Github'}</a>
@@ -121,10 +121,10 @@ function Work({viewKey, setGlobalState, data}) {
   return (
     <aside>
       <section className={'tile'}>
-        <h1>{'General Trademark'}</h1>
-        <h2>{'Our Work'}</h2>
+        <h1 className={'tm'}>{'General Trademark'}</h1>
+        <h1>{'Our Work'}</h1>
       </section>
-      <section>
+      <section className={'mt6'}>
         <ol className={'mp0-l'}>
           {
             data.recentWork.map((p) => {

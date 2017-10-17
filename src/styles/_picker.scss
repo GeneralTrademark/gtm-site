@@ -27,13 +27,16 @@
   height: 100vh;
   top:0;
   right:0;
-  z-index: 999;
-  pointer-events: visible;
-  clip-path: circle(40.0% at 50% 50%);
+  z-index: 900;
   will-change: opacity;
+  position: fixed;
+  pointer-events: all;
+  background-color: lightgrey;
+
 }
 
 #crosshair{
+  pointer-events: none;
   position: absolute;
   display: block;
   top: 50vh;
@@ -43,20 +46,35 @@
   width: 50px;
   height: 50px;
   transform: translate(-50%, -50%);
-  z-index: 999;
+  z-index: 900;
 
 }
 
-canvas#colorLens{
-  filter:blur(10px);
+#colorLens{
+  filter:blur(15px);
   cursor: grab;
+  pointer-events: all;
 }
 
-canvas#colorLens:active{
+#clipper{
+  clip-path: circle(35.0% at 50% 50%);
+}
+
+#colorLens:active{
   cursor:grabbing;
-
 }
 
+#colorHistoryContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  bottom: $large_padding;
+  height: 45px;
+  padding-right: 15%;
+  padding-left: 15%;
+}
 
 .centerCircle:hover{
   cursor: pointer;
