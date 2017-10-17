@@ -8,6 +8,12 @@ $silver:    silver;
 
 $large_padding: 3rem;
 
+/////// Mixins /////////////////////////////////////////////////////////////////
+
+@mixin for-tablet-down {
+  @media (max-width: 768px) { @content; }
+}
+
 /////// Atomics ////////////////////////////////////////////////////////////////
 
 .noNum{
@@ -26,10 +32,6 @@ $large_padding: 3rem;
   margin-left: 1px;
 }
 
-.borderW{
-  border: 1px solid #444;
-}
-
 .circleB:hover{
   cursor: pointer;
   flex: 1.2;
@@ -39,16 +41,51 @@ $large_padding: 3rem;
   flex: 1.4;
 }
 
+.palleteButton{
+  border-radius: 3px;
+  display: block;
+  height: auto;
+  border: none;
+  outline: none;
+  flex: 1;
+  pointer-events: all;
+  margin: 0;
+  padding: 0;
+
+  background-color: inherit;
+  transition: background-color 200ms;
+}
+
+.palleteButton:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.palleteButton:active{
+}
+
+.borderW{
+  border: 1px solid #444;
+}
+
+
+
 .mr05{
   margin-right: 0.0rem;
 }
 
 .mt4{
   margin-top: 4rem;
+  @include for-tablet-down{
+    margin-top: 2rem;
+  }
 }
 
 .mt6{
   margin-top: 6rem;
+  @include for-tablet-down{
+    margin-top: 3rem;
+  }
 }
 
 .flexList{
@@ -109,11 +146,7 @@ $large_padding: 3rem;
   margin: 0;
 }
 
-/////// Mixins /////////////////////////////////////////////////////////////////
 
-@mixin for-tablet-down {
-  @media (max-width: 768px) { @content; }
-}
 
 /////// Type ///////////////////////////////////////////////////////////////////
 @font-face {
@@ -124,7 +157,7 @@ $large_padding: 3rem;
 }
 
 * {
-  font-family: 'NeueHaas', serif;
+  font-family: 'NeueHaas', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   line-height: 1.4;
@@ -134,6 +167,9 @@ $large_padding: 3rem;
   font-size: 24px;
   color: inherit;
   border-color: inherit;
+  @include for-tablet-down {
+    font-size: 16px;
+  }
 }
 
 h1, h2, h3, img{

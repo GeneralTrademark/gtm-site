@@ -1,10 +1,14 @@
 import React from 'react'
+const BREAKPOINT = 769
 
 function Header({toggleDrawMode, color}) {
   return (
     <header>
+
       <div id={'dotWrapper'} >
-        <button style={{backgroundColor:color}} id={'dot'} onClick={toggleDrawMode} />
+        { BREAKPOINT > window.innerWidth ? null :
+          <button style={{backgroundColor:color}} id={'dot'} onClick={toggleDrawMode} />
+        }
       </div>
     </header>
   )
@@ -13,31 +17,6 @@ function Header({toggleDrawMode, color}) {
 function Footer(props) {
   return (
     <footer />
-  )
-}
-
-function Picker(props) {
-  function makeColors() {
-    return props.colorList.map((color, i) => {
-      const height = (i * 5) + 10
-      const width = (i * 10) + 10
-      const offset = (i * 20) - 10
-      const style = {
-        backgroundColor: color,
-        transform: `translateY(${offset}px)`,
-        height: `${height}px`,
-        width: `${width}px`,
-      }
-      return ( <div className={'swatch'} style={style} />)
-    })
-  }
-  return(
-    <div id={'pickerContainer'} className={'rel'}>
-      <div id={'picker'} style={{backgroundColor: props.color}} />
-      <div id={'pickerDropdown'} className={'abs'}>
-        {makeColors()}
-      </div>
-    </div>
   )
 }
 

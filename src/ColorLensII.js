@@ -71,12 +71,9 @@ export default class Picker extends Component {
       Rp.getColorFromCanvas(cx, ctr)
     }
 
-
     cx.globalCompositeOperation = Rp.clrLens.mixMode
     cx.filter = Rp.clrLens.filter
-    // cx.beginPath();
-    // cx.arc(center[0], center[1], dia * 0.8, 0, Math.PI * 2, false);
-    // cx.clip();
+
     const renderD3 = function() {
       cx.clearRect(0, 0, width, height)
       cx.beginPath(), path(circ1), cx.fillStyle = Rp.clrLens.c1, cx.fill() //North Pole
@@ -95,6 +92,12 @@ export default class Picker extends Component {
     })
     return (
       <div id={'D3'} className={`abs ${showPicker}`}>
+        <div id={'commandPallete'}>
+          <button className={'palleteButton'}>{'Export'}</button>
+          <button className={'palleteButton'}>{'Send'}</button>
+          <button className={'palleteButton'}>{'Clear'}</button>
+
+        </div>
         <div id={'crosshair'} />
         <div id={'colorHistoryContainer'}>
           <button className={'circleB mr05'} style={{backgroundColor:'black'}} onClick={() => this.props.setColorInHistory('black')}/>

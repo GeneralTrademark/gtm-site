@@ -5,19 +5,31 @@ aside#pageWrap{
   width: 50vw;
   top: 0;
   -webkit-overflow-scrolling: touch;
+  background-color: white;
+  transition: transform 400ms;
+  @include for-tablet-down {
+    width: 90vw;
+  }
 }
 
 aside#pageWrap:nth-child(1){
   transform: translateX(0vw);
-  border-left-width: 1px;
-  border-left-style: solid;
-
+  // border-left-width: 1px;
+  // border-left-style: solid;
 }
 
 aside#pageWrap:nth-child(2){
   transform: translateX(50vw);
   border-left-width: 1px;
   border-left-style: solid;
+  z-index: 90;
+  @include for-tablet-down {
+    transform: translateX(90vw);
+  }
+}
+
+.moveRight{
+  transform: translateX(10vw) !important;
 }
 
 div#wrap {

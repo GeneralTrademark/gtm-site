@@ -1,3 +1,8 @@
+html {
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
 
 
 ::-webkit-scrollbar {
@@ -8,13 +13,14 @@
 body#documentBody {
   overflow-x: hidden;
   overflow-y: hidden;
-  max-height: 100vh;
+  min-height: 100vh;
 }
 
 body#trueAndRightfulBody {
   width: 100vw;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 main {

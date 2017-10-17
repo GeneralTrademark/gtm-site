@@ -8,6 +8,7 @@ import {Header, Footer} from './HeaderFooter'
 import ColorLensII from './ColorLensII'
 import data from './data/data.json'
 // import dataJson from './data/drawing.json'
+import Swipe from 'react-easy-swipe'
 
 
 const BREAKPOINT = 769
@@ -20,7 +21,7 @@ export default class Main extends Component {
       color:    'black', // any color format
       innerWidth: 0,
       innerHeight: 0,
-      drawMode: true,
+      drawMode: false,
       initialDrawing: '',
       clrHistory: ['rgb(118, 99, 147)'],
       clrLens: {
@@ -89,6 +90,12 @@ export default class Main extends Component {
     this.setState({clrHistory: newExistingColors})
   }
 
+  handleCardChange = (key) => {
+    this.setState({
+      viewKey: key,
+    })
+  }
+
   render() {
     const color = this.state.color
     const colorMap = {
@@ -118,21 +125,26 @@ export default class Main extends Component {
     }
     return (
       <body id={'trueAndRightfulBody'} style={colorMap}>
+
         <Header
           toggleDrawMode={() => this.toggleDrawMode(this.state.drawMode)}
           color={color}
           colorList={this.state.colorList}/>
-        <ColorLensII
+        { window.innerWidth < BREAKPOINT ? null :
+          <ColorLensII
           getColorFromCanvas={this.getColorFromCanvas}
           setColorInHistory={this.setColorInHistory}
           clrHistory={this.state.clrHistory}
           clrLens={this.state.clrLens}
           setColor={this.setColor}
-          drawMode={this.state.drawMode}/>
-        <main>
-          <Page contentKey={'ABOUT'} {...globalProps}/>
-          <Page contentKey={'WORK'} {...globalProps}/>
-        </main>
+          drawMode={this.state.drawMode}/> }
+        <Swipe onSwipeRight={(e) => this.handleCardChange('ABOUT')} onSwipeLeft={(e) => this.handleCardChange('WORK')}>
+          <main>
+            <Page contentKey={'ABOUT'} {...globalProps}/>
+            <Page contentKey={'WORK'} {...globalProps}/>
+          </main>
+        </Swipe>
+
         <Footer />
       </body>
     );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {SketchField, Tools} from 'react-sketch'
 import classnames from 'classnames'
+const BREAKPOINT = 769
 
 // Wraps Content by Key with SketchField
 export default class Page extends Component {
@@ -36,39 +37,51 @@ export default class Page extends Component {
       slideOut: !this.state.isHovering,
     })
 
+    const mobileCardState = classnames({
+      moveRight: props.viewKey === 'WORK' && props.contentKey === 'WORK',
+    })
+
     return (
-      <aside id={'pageWrap'} className={'abs'}>
+
+      <aside id={'pageWrap'} className={`abs ${mobileCardState}`}>
         <div id={'wrap'} className={'rel'} onMouseEnter={() => this.onMouseEnter()} onMouseLeave={() => this.onMouseLeave()}>
-          <div id={'sketchFrame'} className={'abs'}>
-            <SketchField {...props.sketchProps}/>
-          </div>
+          {
+            window.innerWidth < BREAKPOINT ? null :
+            <div id={'sketchFrame'} className={'abs'}>
+              <SketchField {...props.sketchProps}/>
+            </div>
+          }
           <div id={'contentFrame'} className={'abs'}>
             {content}
           </div>
-          <div id={'downArrowContainer'} className={'abs'}>
-            <svg id={'downArrow'} className={arrowStates} width="32" height="42" viewBox="0 0 32 42" version="1.1">
-            <g id="Canvas" transform="translate(-2474 -2083)">
-            <clipPath id="clip-0" clip-rule="evenodd">
-            <path d="M 2474 2083L 2506 2083L 2506 2125L 2474 2125L 2474 2083Z" fill="#FFFFFF"/>
-            </clipPath>
-            <g id="Frame" clip-path="url(#clip-0)">
-            <path d="M 2474 2083L 2506 2083L 2506 2125L 2474 2125L 2474 2083Z" fill="#FFFFFF"/>
-            <g id="Group">
-            <g id="Line">
-            <use xlinkHref="#path0_stroke" transform="matrix(6.66118e-17 1 -1 5.62873e-17 2489.14 2083)"/>
-            </g>
-            <g id="Rectangle">
-            <use xlinkHref="#path1_stroke" transform="matrix(0.717614 -0.696441 0.717614 0.696441 2475 2108.44)"/>
-            </g>
-            </g>
-            </g>
-            </g>
-            <defs>
-            <path fill={this.props.color} id="path0_stroke" d="M 0 0L 38.9474 0L 38.9474 -1.5L 0 -1.5L 0 0Z"/>
-            <path fill={this.props.color} id="path1_stroke" d="M 0 20.9026L -0.75 20.9026L -0.75 21.6526L 0 21.6526L 0 20.9026ZM 20.9026 20.1526L 0 20.1526L 0 21.6526L 20.9026 21.6526L 20.9026 20.1526ZM 0.75 20.9026L 0.75 0L -0.75 0L -0.75 20.9026L 0.75 20.9026Z"/>
-            </defs>
-            </svg>
-          </div>
+          {
+            window.innerWidth < BREAKPOINT ? null :
+            <div id={'downArrowContainer'} className={'abs'}>
+              <svg id={'downArrow'} className={arrowStates} width="32" height="42" viewBox="0 0 32 42" version="1.1">
+              <g id="Canvas" transform="translate(-2474 -2083)">
+              <clipPath id="clip-0" clip-rule="evenodd">
+              <path d="M 2474 2083L 2506 2083L 2506 2125L 2474 2125L 2474 2083Z" fill="#FFFFFF"/>
+              </clipPath>
+              <g id="Frame" clip-path="url(#clip-0)">
+              <path d="M 2474 2083L 2506 2083L 2506 2125L 2474 2125L 2474 2083Z" fill="#FFFFFF"/>
+              <g id="Group">
+              <g id="Line">
+              <use xlinkHref="#path0_stroke" transform="matrix(6.66118e-17 1 -1 5.62873e-17 2489.14 2083)"/>
+              </g>
+              <g id="Rectangle">
+              <use xlinkHref="#path1_stroke" transform="matrix(0.717614 -0.696441 0.717614 0.696441 2475 2108.44)"/>
+              </g>
+              </g>
+              </g>
+              </g>
+              <defs>
+              <path fill={this.props.color} id="path0_stroke" d="M 0 0L 38.9474 0L 38.9474 -1.5L 0 -1.5L 0 0Z"/>
+              <path fill={this.props.color} id="path1_stroke" d="M 0 20.9026L -0.75 20.9026L -0.75 21.6526L 0 21.6526L 0 20.9026ZM 20.9026 20.1526L 0 20.1526L 0 21.6526L 20.9026 21.6526L 20.9026 20.1526ZM 0.75 20.9026L 0.75 0L -0.75 0L -0.75 20.9026L 0.75 20.9026Z"/>
+              </defs>
+              </svg>
+            </div>
+          }
+
         </div>
       </aside>
     )

@@ -31,7 +31,12 @@
   will-change: opacity;
   position: fixed;
   pointer-events: all;
-  background-color: lightgrey;
+  background-color: rgb(255, 255, 255);
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: inherit;
+  // margin: 1rem;
+  // border-radius: 4px;
 
 }
 
@@ -72,6 +77,17 @@
   width: 100%;
   bottom: $large_padding;
   height: 45px;
+  padding-right: 15%;
+  padding-left: 15%;
+}
+
+#commandPallete{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  top: $large_padding;
   padding-right: 15%;
   padding-left: 15%;
 }
