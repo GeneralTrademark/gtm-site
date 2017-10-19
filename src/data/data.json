@@ -1,6 +1,6 @@
 {
   "studioName":"General Trademark",
-  "address":"84 Withers St. Brooklyn, NY 11221",
+  "address":"84 Withers St., Brooklyn, NY 11221",
   "email":"info@generaltrademark.com",
   "github":"https://github.com/GeneralTrademark/",
   "twitter":"https://twitter.com/general_bot",
@@ -8,57 +8,71 @@
   "Instagram":"https://www.instagram.com/generaltrademark/",
   "whatDo0":"We are a product R&D studio.",
   "whatDo1":"We develop high fidelity prototypes to explore questions, make new tools to augment creativity, and research new technologies to better understand their impact and behavior. We partner with organizations and companies to build products where the imaginable and possible convene.",
-  "whatDo2":"k",
-  "whatDo3":"We work best when solving problems that combine hardware, software and infrastructure.",
-  "hireUsTo":[
+  "whatDo2":"We work best when solving problems that combine hardware, software and infrastructure.",
+  "hireUsTo": [
     "Build front end experiences for complex ideas.",
     "Apply machine learning to creative domains.",
     "Develop a next-generation on-demand 3D printing fullfillment system.",
     "Invent UX for a personal server.",
     "Design a physical case for a speculative computer."
   ],
-  "recentWork":[
+  "workedWith":"We've worked with startups, labs, organizations and multinational corporations like:",
+  "projects": [
     {
-      "name": "Are.na TV",
-      "key": "tv",
+      "name": "Dat OS",
+      "key": "if",
       "href": "https://arenatv.now.sh/",
-      "question":""
+      "question":"",
+      "client": "Dat Project"
     },
     {
       "name": "Print Are.na",
       "key": "pa",
       "href": "https://printarena.now.sh/",
-      "question":""
+      "question":"",
+      "client": "Are.na"
     },
     {
-      "name": "M-01 Printer",
-      "key": "pr",
+      "name": "Bacteria Imaging",
+      "key": "if",
       "href": "https://arenatv.now.sh/",
-      "question":""
+      "question":"",
+      "client": "Columbia University"
+    },
+    {
+      "name": "AI UX",
+      "key": "if",
+      "href": "https://arenatv.now.sh/",
+      "question":"",
+      "client": "Google"
     },
     {
       "name": "FOAM Spatial Index",
       "key": "if",
       "href": "https://arenatv.now.sh/",
-      "question":""
-    },
-    {
-      "name": "Urbit Wallet",
-      "key": "if",
-      "href": "https://arenatv.now.sh/",
-      "question":""
-    },
-    {
-      "name": "Dat OS",
-      "key": "if",
-      "href": "https://arenatv.now.sh/",
-      "question":""
+      "question":"",
+      "client": "FOAM"
     },
     {
       "name": "Imbedded Forms",
       "key": "ur",
       "href": "https://arenatv.now.sh/",
-      "question":""
+      "question":"",
+      "client": "Self-Initiated"
+    },
+    {
+      "name": "Are.na TV",
+      "key": "tv",
+      "href": "https://arenatv.now.sh/",
+      "question":"",
+      "client": "Self-Initiated"
+    },
+    {
+      "name": "M-01 Printer",
+      "key": "pr",
+      "href": "https://arenatv.now.sh/",
+      "question":"",
+      "client": "Self-Initiated"
     }
   ],
   "humanBeans":[

@@ -14,13 +14,13 @@ body#documentBody {
   overflow-x: hidden;
   overflow-y: hidden;
   min-height: 100vh;
+  height: 100%;
 }
 
 body#trueAndRightfulBody {
   width: 100vw;
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
 main {

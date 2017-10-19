@@ -1,15 +1,59 @@
 import React, { Component } from 'react'
-import {SketchField, Tools} from 'react-sketch'
+// import {SketchField, Tools} from 'react-sketch'
 import classnames from 'classnames'
+import paper, { Path, Tool, Size } from 'paper'
+
 const BREAKPOINT = 769
 
 // Wraps Content by Key with SketchField
+
 export default class Page extends Component {
   constructor(props) {
     super(props)
     this.state = {
       isHovering: false,
+      paper: null,
     }
+  }
+
+  componentDidMount = () => {
+    this.createPaperCanvas()
+  }
+
+  handleClear = (paperScope) => {
+
+  }
+
+  createPaperCanvas = () => {
+    const R = this
+    // ample amounts of bullshit just to get the canvas sized for retina
+    const canvas = document.getElementById('paperNode-ABOUT')
+    const ctx = canvas.getContext('2d')
+    const global_width = window.innerWidth
+    const global_height = window.innerHeight
+    let ratio = 1
+    if(ctx.webkitBackingStorePixelRatio < 2) ratio = window.devicePixelRatio || 1
+    canvas.setAttribute('width', global_width*ratio)
+    canvas.setAttribute('height', global_height*ratio)
+
+    paper.setup('paperNode-ABOUT')
+    paper.project.importSVG('./drawings/1.svg')
+
+    paper.view.viewSize = new Size(window.innerWidth*0.5, window.innerHeight)
+    var tool = new Tool();
+    var path;
+
+    tool.onMouseDown = function(event) {
+			path = new Path()
+			path.strokeColor = R.props.color
+      path.strokeWidth = 2
+			path.add(event.point)
+    }
+
+		tool.onMouseDrag = function(event) {
+			path.add(event.point)
+		}
+
   }
 
   onMouseEnter = () => {
@@ -48,7 +92,7 @@ export default class Page extends Component {
           {
             window.innerWidth < BREAKPOINT ? null :
             <div id={'sketchFrame'} className={'abs'}>
-              <SketchField {...props.sketchProps}/>
+              <canvas data-paper-resize id={`paperNode-${props.viewKey}`}/>
             </div>
           }
           <div id={'contentFrame'} className={'abs'}>
@@ -96,29 +140,34 @@ function About({viewKey, setGlobalState, data}) {
         <h1 className={'tm'}>{data.studioName}</h1>
         <h1>{data.whatDo0}</h1>
       </section>
+
       <section>
         <p>{data.whatDo1}</p>
       </section>
-      <section className={'mt6'}>
+
+      <section className={''}>
         <h2>{'For example, we can help you...'}</h2>
         <ol>
           {
-            data.hireUsTo.map((i) => {
-              return <li>{i}</li>
+            data.hireUsTo.map((it) => {
+              return <li>{it}</li>
             })
           }
         </ol>
       </section>
-      <section className={'mt6'}>
-        <h2>{'Human Beans'}</h2>
+
+      <section className={''}>
+        <h2>{'Human Beans:'}</h2>
          {data.humanBeansBio}
       </section>
-      <section className={'flexList mt6'}>
-        <h2>{'Contact:'}</h2>
-         {data.address}
-         <a href={data.github}>{'Github'}</a>
-         <a href={data.arena}>{'Are.na'}</a>
-         <a href={data.instagram}>{'Instagram'}</a>
+
+      <section className={'flexList '}>
+        <h2>{'Stay in touch:'}</h2>
+        <a href={data.email}>{data.email}</a>
+        <a href={'https://goo.gl/maps/tkzibZVDTjC2'}>{data.address}</a>
+        <a href={data.github}>{'Github'}</a>
+        <a href={data.arena}>{'Are.na'}</a>
+        <a href={data.instagram}>{'Instagram'}</a>
       </section>
       <section className={'flexBetween'}>
         <div>{'◕'}</div>
@@ -137,19 +186,38 @@ function Work({viewKey, setGlobalState, data}) {
         <h1 className={'tm'}>{'General Trademark'}</h1>
         <h1>{'Our Work'}</h1>
       </section>
-      <section className={'mt6'}>
+
+      <section>
+        <p>{data.whatDo2}</p>
+        <p>{data.workedWith}</p>
         <ol className={'mp0-l'}>
           {
-            data.recentWork.map((p) => {
-              return <p className={'mt4'}>{p.name}</p>
+            data.projects.map((p) => {
+              if (p.client !== 'Self-Initiated') {
+                return <li className={'flexBetween rules'}><p>{p.client}</p><a href={p.href}>{p.name}</a></li>
+              }
             })
           }
         </ol>
       </section>
+
+      <section className={''}>
+        <h2>{'We do many self-initiated projects:'}</h2>
+        <ol className={'mp0-l'}>
+          {
+            data.projects.map((p) => {
+              if (p.client === 'Self-Initiated') {
+                return <li className={'rules'}>{p.name}</li>
+              }
+            })
+          }
+        </ol>
+      </section>
+
       <section className={'flexBetween'}>
-        <div>{'◕'}</div>
-        <div>{'ᴗ'}</div>
-        <div>{'◕'}</div>
+        <div>{'ಠ'}</div>
+        <div>{'‿'}</div>
+        <div>{'ಠ'}</div>
       </section>
     </aside>
   )
@@ -159,7 +227,7 @@ function Work({viewKey, setGlobalState, data}) {
 function ProjectTile({p}) {
   let rootPath = 'images/'
   return (
-    <li className={'mp0-l mt4 noNum'}>
+    <li className={'mp0-l mt2 noNum'}>
       <div>{p.name}</div>
     </li>
   )

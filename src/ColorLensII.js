@@ -93,9 +93,9 @@ export default class Picker extends Component {
     return (
       <div id={'D3'} className={`abs ${showPicker}`}>
         <div id={'commandPallete'}>
-          <button className={'palleteButton'}>{'Export'}</button>
-          <button className={'palleteButton'}>{'Send'}</button>
-          <button className={'palleteButton'}>{'Clear'}</button>
+          <button className={'palleteButton'} onClick={() => this.props.exportCanvas()}>{'Export'}</button>
+          <button className={'palleteButton'} onClick={() => this.props.sendCanvas()}>{'Send'}</button>
+          <button className={'palleteButton'} onClick={() => this.props.clearCanvas()}>{'Clear'}</button>
 
         </div>
         <div id={'crosshair'} />

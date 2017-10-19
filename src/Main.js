@@ -2,15 +2,13 @@ import React, { Component } from 'react'
 import TextLoop from 'react-text-loop'
 import Scrollchor from 'react-scrollchor'
 import classnames from 'classnames'
-import {SketchField, Tools} from 'react-sketch'
 import Page from './Page'
 import {Header, Footer} from './HeaderFooter'
 import ColorLensII from './ColorLensII'
 import data from './data/data.json'
 // import dataJson from './data/drawing.json'
 import Swipe from 'react-easy-swipe'
-
-
+import paper from 'paper'
 const BREAKPOINT = 769
 
 export default class Main extends Component {
@@ -22,7 +20,7 @@ export default class Main extends Component {
       innerWidth: 0,
       innerHeight: 0,
       drawMode: false,
-      initialDrawing: '',
+      initialDrawing: {},
       clrHistory: ['rgb(118, 99, 147)'],
       clrLens: {
         c1: '#ff3600',
@@ -42,8 +40,10 @@ export default class Main extends Component {
     })
   }
 
-  setGlobalState = (key, value) => {
-    this.setState({key, value})
+  setGlobalState = (obj) => {
+    if (typeof obj === 'object') {
+      this.setState(obj)
+    }
   }
 
   toggleDrawMode = (currentState) => {
@@ -55,6 +55,24 @@ export default class Main extends Component {
       this.setState({color:color})
       this.handleColorHistory(color)
     }
+  }
+
+  clearCanvas = () => {
+    paper.project.activeLayer.removeChildren()
+  }
+
+  sendCanvas = () => {
+
+  }
+
+  exportCanvas = () => {
+    let fileName = 'GeneralTrademark.svg'
+    if(!fileName) { fileName = "paperjs_example.svg" }
+    const url = "data:image/svg+xml;utf8," + encodeURIComponent(paper.project.exportSVG({asString:true}));
+    const link = document.createElement("a");
+    link.download = fileName;
+    link.href = url;
+    link.click();
   }
 
   setColorInHistory = (color) => {
@@ -108,15 +126,6 @@ export default class Main extends Component {
       data,
       color,
       setGlobalState: this.setGlobalState,
-      sketchProps: {
-        height: this.state.innerHeight,
-        width: this.state.innerWidth * 0.5000,
-        tool: Tools.Pencil,
-        lineColor: color,
-        lineWidth: 2,
-        defaultDataType: 'url',
-        // defaultData: dataJson,
-      },
     }
 
     const viewport = {
@@ -132,12 +141,15 @@ export default class Main extends Component {
           colorList={this.state.colorList}/>
         { window.innerWidth < BREAKPOINT ? null :
           <ColorLensII
-          getColorFromCanvas={this.getColorFromCanvas}
-          setColorInHistory={this.setColorInHistory}
-          clrHistory={this.state.clrHistory}
-          clrLens={this.state.clrLens}
-          setColor={this.setColor}
-          drawMode={this.state.drawMode}/> }
+            exportCanvas={this.exportCanvas}
+            sendCanvas={this.sendCanvas}
+            clearCanvas={this.clearCanvas}
+            getColorFromCanvas={this.getColorFromCanvas}
+            setColorInHistory={this.setColorInHistory}
+            clrHistory={this.state.clrHistory}
+            clrLens={this.state.clrLens}
+            setColor={this.setColor}
+            drawMode={this.state.drawMode}/> }
         <Swipe onSwipeRight={(e) => this.handleCardChange('ABOUT')} onSwipeLeft={(e) => this.handleCardChange('WORK')}>
           <main>
             <Page contentKey={'ABOUT'} {...globalProps}/>

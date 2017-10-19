@@ -16,18 +16,18 @@
     "d3-interpolate": "^1.1.5",
     "d3-scale": "^1.0.6",
     "d3-selection": "^1.1.0",
+    "fabric": "^1.7.19",
     "github": "^11.0.0",
     "hsluv": "0.0.1",
     "npm-run-all": "^4.1.1",
+    "paper": "^0.11.5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-drawable-canvas": "^1.1.0",
     "react-easy-swipe": "0.0.13",
     "react-markdown": "^2.5.0",
     "react-scrollchor": "^4.0.0",
-    "react-sketch": "^0.3.3",
-    "react-text-loop": "^1.1.0",
-    "versor.js": "git+https://github.com/weshoke/versor.js.git"
+    "react-text-loop": "^1.1.0"
   },
   "scripts": {
     "start-js": "react-scripts start",
