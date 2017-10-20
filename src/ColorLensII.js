@@ -3,8 +3,7 @@ import { drag, mouse} from 'd3'
 import { select } from 'd3-selection'
 import { geoPath, geoOrthographic, geoCircle} from 'd3-geo'
 import classnames from 'classnames'
-import {versor} from './helpers/versor.js'
-import {hpluvToHex, hexToHsluv} from 'hsluv'
+import { versor } from './helpers/versor.js'
 
 export default class Picker extends Component {
   constructor(props) {
@@ -100,11 +99,10 @@ export default class Picker extends Component {
         </div>
         <div id={'crosshair'} />
         <div id={'colorHistoryContainer'}>
-          <button className={'circleB mr05'} style={{backgroundColor:'black'}} onClick={() => this.props.setColorInHistory('black')}/>
           {
-            this.props.clrHistory.map((c) => {
-              return <button className={'circleB mr05'} style={{backgroundColor:c}} onClick={() => this.props.setColorInHistory(c)}/>
-            })
+            // this.props.clrHistory.map((c) => {
+            //   return <button className={'circleB mr05'} style={{backgroundColor:c}} onClick={() => this.props.setColorInHistory(c)}/>
+            // })
           }
         </div>
         <div id={'clipper'} style={{backgroundColor:'white'}}>

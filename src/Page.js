@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import {SketchField, Tools} from 'react-sketch'
 import classnames from 'classnames'
 import paper, { Path, Tool, Size } from 'paper'
 
@@ -20,10 +19,6 @@ export default class Page extends Component {
     this.createPaperCanvas()
   }
 
-  handleClear = (paperScope) => {
-
-  }
-
   createPaperCanvas = () => {
     const R = this
     // ample amounts of bullshit just to get the canvas sized for retina
@@ -39,9 +34,8 @@ export default class Page extends Component {
     paper.setup('paperNode-ABOUT')
     paper.project.importSVG('./drawings/1.svg')
 
-    paper.view.viewSize = new Size(window.innerWidth*0.5, window.innerHeight)
-    var tool = new Tool();
-    var path;
+    const tool = new Tool();
+    let path;
 
     tool.onMouseDown = function(event) {
 			path = new Path()
@@ -54,6 +48,9 @@ export default class Page extends Component {
 			path.add(event.point)
 		}
 
+    tool.onMouseUp = function(event) {
+      path.smooth()
+    }
   }
 
   onMouseEnter = () => {

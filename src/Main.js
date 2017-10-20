@@ -6,16 +6,18 @@ import Page from './Page'
 import {Header, Footer} from './HeaderFooter'
 import ColorLensII from './ColorLensII'
 import data from './data/data.json'
-// import dataJson from './data/drawing.json'
 import Swipe from 'react-easy-swipe'
 import paper from 'paper'
+import Dropbox from 'dropbox'
+import moment from 'moment'
+
 const BREAKPOINT = 769
 
 export default class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      viewKey:  'ABOUT',
+      viewKey:  'ABOUT', // mostly for mobile, key of current view
       color:    'black', // any color format
       innerWidth: 0,
       innerHeight: 0,
@@ -31,6 +33,8 @@ export default class Main extends Component {
         filter: 'blur(150px)',
       }
     }
+    const token = process.env.REACT_APP_DROPBOX_ACCESS_TOKEN
+    this.dbx = new Dropbox({ accessToken: token })
   }
 
   componentWillMount = () => {
@@ -61,18 +65,37 @@ export default class Main extends Component {
     paper.project.activeLayer.removeChildren()
   }
 
-  sendCanvas = () => {
+  showNotification = (message, type) => {
 
   }
 
+  makeHash = () => {
+    var text = ""
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    for (var i = 0; i < 5; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length))
+    return text
+  };
+
+  sendCanvas = () => {
+    const fileName = `message_from_gtm_dot_nyc_${this.makeHash()}.svg`
+    const svg = paper.project.exportSVG({asString:true})
+    this.dbx.filesUpload({path: '/' + fileName, contents: svg})
+      .then(function(response) {
+        this.showNotification('Success :)', 'MESSAGE_SUCCESS')
+      })
+      .catch(function(error) {
+        this.showNotification('Something went wrong :(', 'MESSAGE_ERROR')
+    });
+  }
+
   exportCanvas = () => {
-    let fileName = 'GeneralTrademark.svg'
-    if(!fileName) { fileName = "paperjs_example.svg" }
-    const url = "data:image/svg+xml;utf8," + encodeURIComponent(paper.project.exportSVG({asString:true}));
-    const link = document.createElement("a");
-    link.download = fileName;
-    link.href = url;
-    link.click();
+    let fileName = 'i_made_this_on_gtm_dot_nyc.svg'
+    const url = "data:image/svg+xml;utf8," + encodeURIComponent(paper.project.exportSVG({asString:true}))
+    const link = document.createElement("a")
+    link.download = fileName
+    link.href = url
+    link.click()
   }
 
   setColorInHistory = (color) => {
