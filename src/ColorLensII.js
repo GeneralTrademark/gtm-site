@@ -4,6 +4,7 @@ import { select } from 'd3-selection'
 import { geoPath, geoOrthographic, geoCircle} from 'd3-geo'
 import classnames from 'classnames'
 import { versor } from './helpers/versor.js'
+import { BREAKPOINT } from './helpers/constants'
 
 export default class Picker extends Component {
   constructor(props) {
@@ -14,23 +15,31 @@ export default class Picker extends Component {
   }
 
   componentDidMount() {
-    this.createPicker()
+    if (window.innerWidth > BREAKPOINT ) {
+      this.createPicker()
+    }
   }
 
   createPicker = () => {
-    const Rc = this
+    const R = this
     const Rp = this.props
+    console.log(this)
 
-    const canvas = select(Rc.node)
+    const canvas = select(R.node)
     const cx = canvas.node().getContext('2d')
     const width = window.innerWidth * 0.5
     const height = window.innerHeight
     const ctr = [width * 0.5, height * 0.5] //frame center
     const dia = height * 0.35 // diameter for colorLens
 
-    const projection = geoOrthographic().scale(dia).translate(ctr).precision(2)
+    const projection = geoOrthographic()
+      .scale(dia)
+      .translate(ctr)
+      .precision(2);
 
-    const path = geoPath().projection(projection).context(cx)
+    const path = geoPath()
+      .projection(projection)
+      .context(cx);
 
     const c = geoCircle().radius(90)
     const circ1 = c.center([0, 90])()
@@ -90,23 +99,27 @@ export default class Picker extends Component {
       fadeOut: !this.props.drawMode,
     })
     return (
-      <div id={'D3'} className={`abs ${showPicker}`}>
-        <div id={'commandPallete'}>
-          <button className={'palleteButton'} onClick={() => this.props.exportCanvas()}>{'Export'}</button>
-          <button className={'palleteButton'} onClick={() => this.props.sendCanvas()}>{'Send'}</button>
-          <button className={'palleteButton'} onClick={() => this.props.clearCanvas()}>{'Clear'}</button>
+      <div id={'D3'} className={`fix ${showPicker}`}>
 
-        </div>
-        <div id={'crosshair'} />
-        <div id={'colorHistoryContainer'}>
+
+        <div id={'commandPallete'} className={'abs'}>
           {
             // this.props.clrHistory.map((c) => {
             //   return <button className={'circleB mr05'} style={{backgroundColor:c}} onClick={() => this.props.setColorInHistory(c)}/>
             // })
           }
+          <button className={'pill'}>{'💣'}</button>
+          <button className={'pill'}>{'Reset Color'}</button>
+
         </div>
-        <div id={'clipper'} style={{backgroundColor:'white'}}>
-          <canvas id={'colorLens'}  ref={node => this.node = node} width={window.innerWidth * 0.50} height={window.innerHeight} />
+        <div id={'clipper'}>
+          <div id={'crosshair'} />
+          <canvas
+            id={'colorLens'}
+            resize={'true'}
+            ref={node => this.node = node}
+            width={window.innerWidth * 0.50}
+            height={window.innerHeight} />
         </div>
       </div>
     )

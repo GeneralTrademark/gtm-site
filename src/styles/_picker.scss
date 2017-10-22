@@ -1,27 +1,3 @@
-#pickerContainer{
-  position: fixed;
-  margin-right: $large_padding;
-  height: 33px;
-  display: flex;
-  align-items: center;
-}
-
-#picker{
-  width: 12px;
-  height: 12px;
-  display: block;
-  border-radius: 40px;
-  transition: transform 300ms;
-  will-change: transform;
-}
-
-#picker:hover{
-  cursor: pointer;
-  transform: scale(1.33);
-}
-
-/////
-
 #D3{
   width: 50vw;
   height: 100vh;
@@ -42,10 +18,10 @@
 
 #crosshair{
   pointer-events: none;
-  position: absolute;
+  position: fixed;
   display: block;
-  top: 50vh;
-  left: 25vw;
+  top: 50%;
+  left: 75%;
   background-image: url('./assets/crosshair.svg');
   background-size: contain;
   width: 50px;
@@ -63,13 +39,14 @@
 
 #clipper{
   clip-path: circle(35.0% at 50% 50%);
+  background-color: white;
 }
 
 #colorLens:active{
   cursor:grabbing;
 }
 
-#colorHistoryContainer{
+#commandPallete{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,16 +58,16 @@
   padding-left: 15%;
 }
 
-#commandPallete{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-  top: $large_padding;
-  padding-right: 15%;
-  padding-left: 15%;
-}
+// #commandPallete{
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   position: absolute;
+//   width: 100%;
+//   top: $large_padding;
+//   padding-right: 15%;
+//   padding-left: 15%;
+// }
 
 .centerCircle:hover{
   cursor: pointer;

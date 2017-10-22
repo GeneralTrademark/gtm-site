@@ -4,14 +4,11 @@ import Scrollchor from 'react-scrollchor'
 import classnames from 'classnames'
 import Page from './Page'
 import {Header, Footer} from './HeaderFooter'
-import ColorLensII from './ColorLensII'
 import data from './data/data.json'
 import Swipe from 'react-easy-swipe'
 import paper from 'paper'
 import Dropbox from 'dropbox'
-import moment from 'moment'
-
-const BREAKPOINT = 769
+import { BREAKPOINT } from './helpers/constants'
 
 export default class Main extends Component {
   constructor(props) {
@@ -139,6 +136,7 @@ export default class Main extends Component {
 
   render() {
     const color = this.state.color
+
     const colorMap = {
       borderColor: color,
       color: color,
@@ -149,39 +147,36 @@ export default class Main extends Component {
       data,
       color,
       setGlobalState: this.setGlobalState,
+      toggleDrawMode: () => this.toggleDrawMode(this.state.drawMode)
+    }
+
+    const colorLensProps = {
+      exportCanvas: this.exportCanvas,
+      sendCanvas: this.sendCanvas,
+      clearCanvas:this.clearCanvas,
+      getColorFromCanvas: this.getColorFromCanvas,
+      setColorInHistory:this.setColorInHistory,
+      clrHistory: this.state.clrHistory,
+      clrLens: this.state.clrLens,
+      setColor: this.setColor,
+      drawMode: this.state.drawMode,
     }
 
     const viewport = {
       innerWidth: this.state.innerWidth,
-      innerHeight: this.state.innerHeight,
+      innerHeight:this.state.innerHeight,
     }
     return (
-      <body id={'trueAndRightfulBody'} style={colorMap}>
-
-        <Header
-          toggleDrawMode={() => this.toggleDrawMode(this.state.drawMode)}
-          color={color}
-          colorList={this.state.colorList}/>
-        { window.innerWidth < BREAKPOINT ? null :
-          <ColorLensII
-            exportCanvas={this.exportCanvas}
-            sendCanvas={this.sendCanvas}
-            clearCanvas={this.clearCanvas}
-            getColorFromCanvas={this.getColorFromCanvas}
-            setColorInHistory={this.setColorInHistory}
-            clrHistory={this.state.clrHistory}
-            clrLens={this.state.clrLens}
-            setColor={this.setColor}
-            drawMode={this.state.drawMode}/> }
-        <Swipe onSwipeRight={(e) => this.handleCardChange('ABOUT')} onSwipeLeft={(e) => this.handleCardChange('WORK')}>
+      <content style={colorMap}>
+        <Swipe
+          onSwipeRight={(e) => this.handleCardChange('ABOUT')}
+          onSwipeLeft={(e) => this.handleCardChange('WORK')}>
           <main>
-            <Page contentKey={'ABOUT'} {...globalProps}/>
-            <Page contentKey={'WORK'} {...globalProps}/>
+            <Page contentKey={'ABOUT'} {...globalProps} {...colorLensProps}/>
+            <Page contentKey={'WORK'} {...globalProps} {...colorLensProps}/>
           </main>
         </Swipe>
-
-        <Footer />
-      </body>
+      </content>
     );
   }
 }

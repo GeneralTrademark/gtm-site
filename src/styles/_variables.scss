@@ -5,7 +5,6 @@ $white:     white;
 $blue:      rgb(0, 33, 255);
 $lightBlue: rgb(80, 129, 255);
 $silver:    silver;
-
 $large_padding: 3rem;
 
 /////// Mixins /////////////////////////////////////////////////////////////////
@@ -68,8 +67,6 @@ $large_padding: 3rem;
   border: 1px solid #444;
 }
 
-
-
 .mr05{
   margin-right: 0.0rem;
 }
@@ -125,16 +122,20 @@ $large_padding: 3rem;
   position: absolute;
 }
 
+.fix{
+  position: fixed;
+}
+
 .fadeIn{
   opacity: 1;
   visibility: visible;
-  transition: visibility 0.3s step-start, opacity 0.3s linear;
+  transition: visibility 250ms step-start, opacity 250ms linear;
 }
 
 .fadeOut {
   opacity: 0;
   visibility: hidden;
-  transition: visibility 0.3s step-end, opacity 0.3s linear;
+  transition: visibility 250ms step-end, opacity 250ms linear;
 }
 
 .slideIn{
@@ -158,6 +159,15 @@ $large_padding: 3rem;
   left: 0;
   padding: 0;
   margin: 0;
+}
+
+.pill{
+  border-radius: 100px;
+  padding: 5px 10px 5px 10px;
+  background-color: #EEE;
+  border: none;
+  outline: none;
+  margin-right: 10px;
 }
 
 /////// Type ///////////////////////////////////////////////////////////////////
@@ -198,6 +208,11 @@ h1 {
   line-height: normal;
 }
 
+.tm{
+  margin-top: $large-padding;
+  margin-left: $large-padding;
+  z-index: 999;
+}
 
 .tm:after {
   content:'™';
@@ -230,7 +245,6 @@ li.rules{
 
 li.rules:last-of-type{
   border-bottom: none;
-
 }
 
 // li::before{

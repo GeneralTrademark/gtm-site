@@ -9,37 +9,13 @@ header{
   z-index: 999;
   height: 81px;
   background-color: transparent;
-  padding-right: $large_padding;
-  padding-left: $large_padding;
   padding-top: $large_padding;
   pointer-events: none;
 }
 
-#dotWrapper{
-  height: 28px;
-  display: flex;
-  align-items: center;
-}
-
-#dot{
-  width: 12px;
-  height: 12px;
-  border-radius: 99px;
-  border: 0;
-  outline: none;
-  padding: 0;
-  transition: transform 250ms;
-  will-change: transform;
-  pointer-events: all;
-}
-
-#dot:hover{
-  transform: scale(3);
-  cursor: pointer;
-}
-
-#dot:active{
-  transform: scale(2.5);
+header h1 {
+  width: 100%;
+  padding-left: $large_padding;
 }
 
 ////FOOTER//////////////////////////////////////////////////////////////////////

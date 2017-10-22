@@ -1,15 +1,10 @@
 import React from 'react'
-const BREAKPOINT = 769
+import { BREAKPOINT } from './helpers/constants'
 
 function Header({toggleDrawMode, color}) {
   return (
     <header>
-
-      <div id={'dotWrapper'} >
-        { BREAKPOINT > window.innerWidth ? null :
-          <button style={{backgroundColor:color}} id={'dot'} onClick={toggleDrawMode} />
-        }
-      </div>
+    
     </header>
   )
 }
