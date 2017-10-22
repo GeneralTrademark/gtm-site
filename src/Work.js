@@ -5,7 +5,6 @@ export default function Work({viewKey, setGlobalState, data}) {
   return (
     <aside>
       <section className={'tile'}>
-        <h1></h1>
         <h1>{'Our Work'}</h1>
       </section>
 
@@ -17,6 +16,8 @@ export default function Work({viewKey, setGlobalState, data}) {
             data.projects.map((p) => {
               if (p.client !== 'Self-Initiated') {
                 return <li className={'flexBetween rules'}><p>{p.client}</p><a href={p.href}>{p.name}</a></li>
+              } else {
+                return null
               }
             })
           }
@@ -30,6 +31,8 @@ export default function Work({viewKey, setGlobalState, data}) {
             data.projects.map((p) => {
               if (p.client === 'Self-Initiated') {
                 return <li className={'rules'}>{p.name}</li>
+              } else {
+                return null
               }
             })
           }

@@ -7,7 +7,6 @@ import ColorLensII from './ColorLensII'
 
 import { BREAKPOINT } from './helpers/constants'
 
-// Wraps Content by Key with SketchField
 export default class Page extends Component {
   constructor(props) {
     super(props)
@@ -17,19 +16,16 @@ export default class Page extends Component {
     }
   }
 
-  onMouseEnter = () => {
-    this.setState({isHovering: true})
-  }
+  onMouseEnter = () => { this.setState({isHovering: true}) }
 
-  onMouseLeave = () => {
-    this.setState({isHovering: false})
-  }
+  onMouseLeave = () => { this.setState({isHovering: false}) }
 
   handleScroll = (e) => {
+    // maybe throttle?
     const x = e.target.scrollTop
     const thresh = window.innerHeight - (window.innerHeight * 0.40)
     const currentState = this.state.isHeaderShowing
-    // only set state when something has changed
+    // only set new state when state changed
     if (x > thresh && currentState) {
       this.setState({isHeaderShowing: false})
     } else if (x < thresh && !currentState) {
@@ -38,10 +34,9 @@ export default class Page extends Component {
   }
 
   handleColorPicker = () => {
+    // colorpicker only appears on non-mobile viewports on only the WORK page
     if (window.innerWidth > BREAKPOINT && this.props.contentKey === 'WORK') {
-      return (
-          <ColorLensII {...this.props} />
-      )
+      return <ColorLensII {...this.props} />
     } else {
       return null
     }
@@ -52,14 +47,10 @@ export default class Page extends Component {
     let content
     switch (props.contentKey) {
       case 'WORK':
-        content = <Work
-          data={props.data}
-          viewKey={props.viewKey}/>
+        content = <Work data={props.data} viewKey={props.viewKey}/>
         break
       default:
-        content = <About
-          data={props.data}
-          viewKey={props.viewKey}/>
+        content = <About data={props.data} viewKey={props.viewKey}/>
         break
     }
 
@@ -86,7 +77,10 @@ export default class Page extends Component {
           onScroll={(e) => this.handleScroll(e)}>
             <h1 className={`tm fix ${headerClasses}`}>{'General Trademark'}</h1>
             {this.handleColorPicker()}
-            <PaperCanvas contentKey={props.contentKey} color={props.color}/>
+            <PaperCanvas
+              {...this.props}
+              contentKey={props.contentKey}
+              color={props.color}/>
             <div id={'contentFrame'} className={'abs'}>
               {content}
             </div>

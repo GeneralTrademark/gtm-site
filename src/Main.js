@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
-import TextLoop from 'react-text-loop'
-import Scrollchor from 'react-scrollchor'
-import classnames from 'classnames'
 import Page from './Page'
-import {Header, Footer} from './HeaderFooter'
 import data from './data/data.json'
 import Swipe from 'react-easy-swipe'
 import paper from 'paper'
 import Dropbox from 'dropbox'
-import { BREAKPOINT } from './helpers/constants'
+import {PaperScope} from 'paper'
+import { BREAKPOINT, makeHash } from './helpers/constants'
 
 export default class Main extends Component {
   constructor(props) {
@@ -20,6 +17,7 @@ export default class Main extends Component {
       innerHeight: 0,
       drawMode: false,
       initialDrawing: {},
+      userHasDrawn: false,
       clrHistory: ['rgb(118, 99, 147)'],
       clrLens: {
         c1: '#ff3600',
@@ -28,17 +26,12 @@ export default class Main extends Component {
         c4: '#00ff29',
         mixMode: 'luminosity',
         filter: 'blur(150px)',
-      }
+      },
+      notifications: [], //array of objects {message::str, type::str(key)}
     }
     const token = process.env.REACT_APP_DROPBOX_ACCESS_TOKEN
     this.dbx = new Dropbox({ accessToken: token })
-  }
-
-  componentWillMount = () => {
-    this.setState({
-      innerWidth: window.innerWidth,
-      innerHeight: window.innerHeight,
-    })
+    paper.install(window)
   }
 
   setGlobalState = (obj) => {
@@ -58,41 +51,56 @@ export default class Main extends Component {
     }
   }
 
-  clearCanvas = () => {
-    paper.project.activeLayer.removeChildren()
+  clearCanvases = () => {
+    paper.projects.map((project) => {
+      project.activeLayer.removeChildren()
+    })
   }
 
-  showNotification = (message, type) => {
+  addNotification = (message, type, component) => {
+    // types: PERSISTANT, TEMPORARY
+    // components: PROMPT, MESSAGE
+    const maxNots = 3
+    const newNot = { message, type, component }
 
+    let nots = this.state.notifications
+    // only trim end of array when
+    if (nots.length >= maxNots) {
+      nots[nots.length].type !== 'PERSISTANT' ? nots.pop() : null
+    }
+
+    let newNots = nots.concat(newNot)
+    this.setState({ notifications: newNots })
   }
 
-  makeHash = () => {
-    var text = ""
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-    for (var i = 0; i < 5; i++)
-      text += possible.charAt(Math.floor(Math.random() * possible.length))
-    return text
-  };
-
-  sendCanvas = () => {
-    const fileName = `message_from_gtm_dot_nyc_${this.makeHash()}.svg`
-    const svg = paper.project.exportSVG({asString:true})
-    this.dbx.filesUpload({path: '/' + fileName, contents: svg})
-      .then(function(response) {
-        this.showNotification('Success :)', 'MESSAGE_SUCCESS')
+  sendCanvases = () => {
+    // make .SVG
+    paper.projects.map((project) => {
+      const hash = makeHash()
+      const fileName = `message_from_gtm_dot_nyc_${hash}.svg`
+      const svg = project.exportSVG({asString:true})
+      // send to dbx
+      this.dbx.filesUpload({path: '/' + fileName, contents: svg})
+        .then(function(response) {
+          this.showNotification('Success :)', 'MESSAGE_SUCCESS')
+        })
+        .catch(function(error) {
+          this.showNotification('Something went wrong :(', 'MESSAGE_ERROR')
       })
-      .catch(function(error) {
-        this.showNotification('Something went wrong :(', 'MESSAGE_ERROR')
-    });
+    })
   }
 
-  exportCanvas = () => {
-    let fileName = 'i_made_this_on_gtm_dot_nyc.svg'
-    const url = "data:image/svg+xml;utf8," + encodeURIComponent(paper.project.exportSVG({asString:true}))
-    const link = document.createElement("a")
-    link.download = fileName
-    link.href = url
-    link.click()
+  exportCanvases = () => {
+    paper.projects.map((project) => {
+      // make .SVG
+      let fileName = 'i_made_this_on_gtm_dot_nyc.svg'
+      const url = "data:image/svg+xml;utf8," + encodeURIComponent(project.exportSVG({asString:true}))
+      // Execute download
+      const link = document.createElement("a")
+      link.download = fileName
+      link.href = url
+      link.click()
+    })
   }
 
   setColorInHistory = (color) => {
@@ -129,9 +137,7 @@ export default class Main extends Component {
   }
 
   handleCardChange = (key) => {
-    this.setState({
-      viewKey: key,
-    })
+    this.setState({ viewKey: key })
   }
 
   render() {
@@ -147,13 +153,16 @@ export default class Main extends Component {
       data,
       color,
       setGlobalState: this.setGlobalState,
+      userHasDrawn: this.state.userHasDrawn,
+      addNotification: this.addNotification,
+      paper: this.paper,
       toggleDrawMode: () => this.toggleDrawMode(this.state.drawMode)
     }
 
     const colorLensProps = {
-      exportCanvas: this.exportCanvas,
-      sendCanvas: this.sendCanvas,
-      clearCanvas:this.clearCanvas,
+      exportCanvases: this.exportCanvases,
+      sendCanvases: this.sendCanvases,
+      clearCanvases:this.clearCanvases,
       getColorFromCanvas: this.getColorFromCanvas,
       setColorInHistory:this.setColorInHistory,
       clrHistory: this.state.clrHistory,
@@ -162,10 +171,6 @@ export default class Main extends Component {
       drawMode: this.state.drawMode,
     }
 
-    const viewport = {
-      innerWidth: this.state.innerWidth,
-      innerHeight:this.state.innerHeight,
-    }
     return (
       <content style={colorMap}>
         <Swipe

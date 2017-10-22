@@ -5,7 +5,6 @@ export default function About({viewKey, setGlobalState, data}) {
   return (
     <aside>
       <section className={'tile'}>
-        <h1></h1>
         <h1>{data.whatDo0}</h1>
       </section>
 

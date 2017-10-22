@@ -23,7 +23,6 @@ export default class Picker extends Component {
   createPicker = () => {
     const R = this
     const Rp = this.props
-    console.log(this)
 
     const canvas = select(R.node)
     const cx = canvas.node().getContext('2d')
@@ -40,6 +39,7 @@ export default class Picker extends Component {
     const path = geoPath()
       .projection(projection)
       .context(cx);
+
 
     const c = geoCircle().radius(90)
     const circ1 = c.center([0, 90])()
@@ -98,29 +98,43 @@ export default class Picker extends Component {
       fadeIn: this.props.drawMode,
       fadeOut: !this.props.drawMode,
     })
+
     return (
       <div id={'D3'} className={`fix ${showPicker}`}>
 
-
         <div id={'commandPallete'} className={'abs'}>
-          {
-            // this.props.clrHistory.map((c) => {
-            //   return <button className={'circleB mr05'} style={{backgroundColor:c}} onClick={() => this.props.setColorInHistory(c)}/>
-            // })
-          }
-          <button className={'pill'}>{'💣'}</button>
-          <button className={'pill'}>{'Reset Color'}</button>
-
+          <button
+            onClick = {() => this.props.exportCanvases()}
+            className={'pill'}>
+            {'Download'}
+          </button>
+          <button
+            onClick = {() => this.props.clearCanvases()}
+            className={'pill'}>
+            {'💣'}
+          </button>
+          <button
+            onClick = {() => this.props.setColor('black')}
+            className={'pill'}>
+            {'Reset Color'}
+          </button>
+          <button
+            onClick = {() => this.props.sendCanvases()}
+            className={'pill'}>
+            {'Email to Us'}
+          </button>
         </div>
+
         <div id={'clipper'}>
           <div id={'crosshair'} />
           <canvas
             id={'colorLens'}
-            resize={'true'}
+            resize={'true'} // TODO handle resize somehow ?
             ref={node => this.node = node}
-            width={window.innerWidth * 0.50}
+            width={window.innerWidth * 0.5}
             height={window.innerHeight} />
         </div>
+
       </div>
     )
   }
