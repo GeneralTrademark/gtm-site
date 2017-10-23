@@ -4,8 +4,8 @@
   "email":"info@generaltrademark.com",
   "github":"https://github.com/GeneralTrademark/",
   "twitter":"https://twitter.com/general_bot",
-  "are.na":"https://www.are.na/callil-capuozzo/gtm-reference",
-  "Instagram":"https://www.instagram.com/generaltrademark/",
+  "arena":"https://www.are.na/callil-capuozzo/gtm-reference",
+  "instagram":"https://www.instagram.com/generaltrademark/",
   "whatDo0":"We are a product R&D studio.",
   "whatDo1":"We develop high fidelity prototypes to explore questions, make new tools to augment creativity, and research new technologies to better understand their impact and behavior. We partner with organizations and companies to build products where the imaginable and possible convene.",
   "whatDo2":"We work best when solving problems that combine hardware, software and infrastructure.",
@@ -17,62 +17,27 @@
     "Design a physical case for a speculative computer."
   ],
   "workedWith":"We've worked with startups, labs, organizations and multinational corporations like:",
-  "projects": [
+  "clientProjects": [
     {
       "name": "Dat OS",
       "key": "if",
       "href": "https://arenatv.now.sh/",
-      "question":"",
+      "question":"What changes when an OS is decentralized?",
       "client": "Dat Project"
     },
     {
-      "name": "Print Are.na",
-      "key": "pa",
-      "href": "https://printarena.now.sh/",
-      "question":"",
-      "client": "Are.na"
-    },
-    {
-      "name": "Bacteria Imaging",
-      "key": "if",
-      "href": "https://arenatv.now.sh/",
-      "question":"",
-      "client": "Columbia University"
-    },
-    {
-      "name": "AI UX",
-      "key": "if",
-      "href": "https://arenatv.now.sh/",
-      "question":"",
-      "client": "Google"
-    },
-    {
-      "name": "FOAM Spatial Index",
-      "key": "if",
-      "href": "https://arenatv.now.sh/",
-      "question":"",
-      "client": "FOAM"
-    },
-    {
       "name": "Imbedded Forms",
-      "key": "ur",
+      "key": "if",
       "href": "https://arenatv.now.sh/",
-      "question":"",
+      "question":"Can an AI maintain a catalog?",
       "client": "Self-Initiated"
     },
     {
-      "name": "Are.na TV",
-      "key": "tv",
+      "name": "Spatial Index",
+      "key": "if",
       "href": "https://arenatv.now.sh/",
-      "question":"",
-      "client": "Self-Initiated"
-    },
-    {
-      "name": "M-01 Printer",
-      "key": "pr",
-      "href": "https://arenatv.now.sh/",
-      "question":"",
-      "client": "Self-Initiated"
+      "question":"How can a geospatial blockchain protocol be visualized?",
+      "client": "FOAM"
     }
   ],
   "humanBeans":[

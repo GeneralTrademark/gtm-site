@@ -27,7 +27,7 @@ export default class PaperCanvas extends Component {
 
     // load initial drawing
     //TODO position in center and scale to viewport
-    this.project.importSVG(`./drawings/${key}.svg`)
+    // this.project.importSVG(`./drawings/${key}.svg`)
 
     let tool = new Tool()
     let path

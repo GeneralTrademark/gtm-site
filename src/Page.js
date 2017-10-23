@@ -4,7 +4,7 @@ import Work from './Work'
 import About from './About'
 import PaperCanvas from './PaperCanvas'
 import ColorLensII from './ColorLensII'
-
+// import WebGLComponent from './WebGLComponent'
 import { BREAKPOINT } from './helpers/constants'
 
 export default class Page extends Component {
@@ -55,6 +55,7 @@ export default class Page extends Component {
     }
 
     const arrowClasses = classnames({
+      fix: true,
       slideIn: this.state.isHovering,
       slideOut: !this.state.isHovering,
     })
@@ -74,21 +75,31 @@ export default class Page extends Component {
           className={'rel wrap'}
           onMouseEnter={() => this.onMouseEnter()}
           onMouseLeave={() => this.onMouseLeave()}
-          onScroll={(e) => this.handleScroll(e)}>
+          //onScroll={(e) => this.handleScroll(e)}
+          >
             <h1 className={`tm fix ${headerClasses}`}>{'General Trademark'}</h1>
-            {this.handleColorPicker()}
-            <PaperCanvas
-              {...this.props}
-              contentKey={props.contentKey}
-              color={props.color}/>
+            {//this.handleColorPicker()
+            }
+            {
+            // <PaperCanvas
+            //   {...this.props}
+            //   contentKey={props.contentKey}
+            //   color={props.color}/>
+            }
+            {
+            // <WebGLComponent contentKey={props.contentKey}/>
+            }
             <div id={'contentFrame'} className={'abs'}>
+              <section className={'front'}/>
               {content}
             </div>
-            <Dot
-              headerClasses={headerClasses}
-              color={props.color}
-              toggleDrawMode={props.toggleDrawMode}
-              contentKey={props.contentKey} />
+            {
+            // <Dot
+            //   headerClasses={headerClasses}
+            //   color={props.color}
+            //   toggleDrawMode={props.toggleDrawMode}
+            //   contentKey={props.contentKey} />
+            }
             <Arrow
               color={props.color}
               arrowClasses={arrowClasses} />
@@ -119,7 +130,7 @@ function Arrow({ color, arrowClasses}) {
         <clipPath id="clip-0" clip-rule="evenodd">
         <path d="M 2474 2083L 2506 2083L 2506 2125L 2474 2125L 2474 2083Z" fill="#FFFFFF"/>
         </clipPath>
-        <g id="Frame" clip-path="url(#clip-0)">
+        <g id="Frame" clipPath="url(#clip-0)">
         <path d="M 2474 2083L 2506 2083L 2506 2125L 2474 2125L 2474 2083Z" fill="#FFFFFF"/>
         <g id="Group">
         <g id="Line">
@@ -132,8 +143,8 @@ function Arrow({ color, arrowClasses}) {
         </g>
         </g>
         <defs>
-        <path fill={color} id="path0_stroke" d="M 0 0L 38.9474 0L 38.9474 -1.5L 0 -1.5L 0 0Z"/>
-        <path fill={color} id="path1_stroke" d="M 0 20.9026L -0.75 20.9026L -0.75 21.6526L 0 21.6526L 0 20.9026ZM 20.9026 20.1526L 0 20.1526L 0 21.6526L 20.9026 21.6526L 20.9026 20.1526ZM 0.75 20.9026L 0.75 0L -0.75 0L -0.75 20.9026L 0.75 20.9026Z"/>
+        <path fill="black" id="path0_stroke" d="M 0 0L 38.9474 0L 38.9474 -1.5L 0 -1.5L 0 0Z"/>
+        <path fill="black" id="path1_stroke" d="M 0 20.9026L -0.75 20.9026L -0.75 21.6526L 0 21.6526L 0 20.9026ZM 20.9026 20.1526L 0 20.1526L 0 21.6526L 20.9026 21.6526L 20.9026 20.1526ZM 0.75 20.9026L 0.75 0L -0.75 0L -0.75 20.9026L 0.75 20.9026Z"/>
         </defs>
         </svg>
       </div>

@@ -20,6 +20,7 @@
   transform: translateX(50vw);
   border-left-width: 1px;
   border-left-style: solid;
+  border-left-color: black;
   z-index: 90;
   @include for-tablet-down {
     transform: translateX(90vw);
@@ -42,15 +43,33 @@ section{
   min-width: 50vw;
 }
 
-section.tile{
-  margin-top: calc(100vh - (#{$large_padding} * 2) - 29px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  @include for-tablet-down {
-    margin-top: calc(100vh - (#{$large_padding} * 2) - 19px);
-  };
+// $bgColor: #19a974;
+$bgColor: #EEE;
+$titleTextColor: black;
+h1{
+  color: $titleTextColor;
 }
+section.tile{
+  position: sticky;
+  background-color: $bgColor;
+  color: $titleTextColor;
+}
+
+section.front{
+  height: calc(100vh - (#{$large_padding} * 2) - 29px);
+  background-color: $bgColor;
+  color: $titleTextColor;
+}
+
+// section.tile{
+//   margin-top: calc(100vh - (#{$large_padding} * 2) - 29px);
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   @include for-tablet-down {
+//     margin-top: calc(100vh - (#{$large_padding} * 2) - 19px);
+//   };
+// }
 
 img{
   max-width: 100%;
@@ -63,6 +82,7 @@ img{
   height: 42px;
   bottom: $large_padding;
   right: $large_padding;
+  mix-blend-mode: darken;
 }
 
 #downArrow{
@@ -98,6 +118,10 @@ img{
 
 #dot:active{
   transform: scale(2.5);
+}
+//
+.grad{
+  background: linear-gradient(to bottom, #6dc9ff 0%,#cbebff 53%,#fff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 //// CANVAS ////////////////////////////////////////////////////////////////////

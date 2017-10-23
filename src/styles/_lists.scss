@@ -1,0 +1,43 @@
+ol.rules li{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid black;
+  border-bottom-color: inherit;
+}
+
+ol.bubbles li{
+  margin-top: 2rem;
+  background-color: wheat;
+  padding: 1em;
+  border-radius: 2rem;
+}
+
+ol.linkList li{
+  display: flex;
+  justify-content: space-between;
+}
+
+ol.linkList li:last-of-type{
+  border-bottom: none;
+}
+
+.chatList{
+  display: flex;
+  flex-direction: column;
+}
+
+.chat {
+  padding: 5px 22px;
+  border-radius: 2rem;
+  display:table;
+}
+
+.chat-grey {
+  background-color: #DDD;
+  color: black;
+}
+
+.chat-blue {
+  background-color: #006fff;
+  color: white;
+}

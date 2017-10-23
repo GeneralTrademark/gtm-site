@@ -1,5 +1,40 @@
 import React from 'react'
 
+function LinkList({ list }) {
+  let content = list.map((li) => {
+    return <li><p>{li.title}</p><a href={li.href}>{li.name}</a></li>
+  })
+  return <ol className={'linkList rules'}>{content}</ol>
+}
+
+function WorkList({ list }) {
+  let content = list.map((li) => {
+    return (
+      <li>
+        <p className={'chat'}>{li.question}</p>
+        <div className={'flexBetween alignCtr chat'}>
+          <a href={li.href}>{li.name}</a><p>{li.client}</p>
+        </div>
+      </li>
+    )
+  })
+  return <ol className={'projectList bubbles'}>{content}</ol>
+}
+
+function BubbleList({ list }) {
+  let content = list.map((li) => {
+    return (
+      <li>
+        <p className={'chat-grey chat'}>{li.question}</p>
+        <div className={'inline chat-blue chat'}>
+          <a href={li.href}>{li.name}</a><p>{li.client}</p>
+        </div>
+      </li>
+    )
+  })
+  return <ol className={'chatList'}>{content}</ol>
+}
+
 // Work Page Content
 export default function Work({viewKey, setGlobalState, data}) {
   return (
@@ -9,41 +44,11 @@ export default function Work({viewKey, setGlobalState, data}) {
       </section>
 
       <section>
-        <p>{data.whatDo2}</p>
-        <p>{data.workedWith}</p>
-        <ol className={'mp0-l'}>
-          {
-            data.projects.map((p) => {
-              if (p.client !== 'Self-Initiated') {
-                return <li className={'flexBetween rules'}><p>{p.client}</p><a href={p.href}>{p.name}</a></li>
-              } else {
-                return null
-              }
-            })
-          }
-        </ol>
+        <p>{'We work best when solving problems that combine hardware, software and infrastructure.'}</p>
+        <p>{'Our best projects use a central question as a north star.'}</p>
+        <WorkList list={data.clientProjects} />
       </section>
 
-      <section className={''}>
-        <h2>{'We do many self-initiated projects:'}</h2>
-        <ol className={'mp0-l'}>
-          {
-            data.projects.map((p) => {
-              if (p.client === 'Self-Initiated') {
-                return <li className={'rules'}>{p.name}</li>
-              } else {
-                return null
-              }
-            })
-          }
-        </ol>
-      </section>
-
-      <section className={'flexBetween'}>
-        <div>{'ಠ'}</div>
-        <div>{'‿'}</div>
-        <div>{'ಠ'}</div>
-      </section>
     </aside>
   )
 }

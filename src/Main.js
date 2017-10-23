@@ -170,9 +170,9 @@ export default class Main extends Component {
       setColor: this.setColor,
       drawMode: this.state.drawMode,
     }
-
+    
     return (
-      <content style={colorMap}>
+      <content >
         <Swipe
           onSwipeRight={(e) => this.handleCardChange('ABOUT')}
           onSwipeLeft={(e) => this.handleCardChange('WORK')}>

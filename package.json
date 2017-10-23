@@ -18,6 +18,7 @@
     "d3-selection": "^1.1.0",
     "dropbox": "^2.5.12",
     "github": "^11.0.0",
+    "marked": "^0.3.6",
     "moment": "^2.19.1",
     "npm-run-all": "^4.1.1",
     "paper": "^0.11.5",
@@ -26,7 +27,9 @@
     "react-easy-swipe": "0.0.13",
     "react-markdown": "^2.5.0",
     "react-scrollchor": "^4.0.0",
-    "react-text-loop": "^1.1.0"
+    "react-text-loop": "^1.1.0",
+    "three": "^0.87.1",
+    "three-stl-loader": "^1.0.6"
   },
   "scripts": {
     "start-js": "react-scripts start",

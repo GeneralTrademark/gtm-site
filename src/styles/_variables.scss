@@ -63,7 +63,7 @@ $large_padding: 3rem;
 .palleteButton:active{
 }
 
-.borderW{
+.borderW {
   border: 1px solid #444;
 }
 
@@ -107,6 +107,10 @@ $large_padding: 3rem;
 .flexBetween{
   display: flex;
   justify-content: space-between;
+}
+
+.alignCtr{
+  align-items: center;
 }
 
 .mp0-l{
@@ -186,7 +190,7 @@ $large_padding: 3rem;
   font-weight: 400;
   // font-family: sans-serif;
   font-size: 24px;
-  color: inherit;
+  // color: inherit;
   border-color: inherit;
   @include for-tablet-down {
     font-size: 16px;
@@ -224,7 +228,7 @@ h1 {
 
 // for all other headings
 h2 {
-  margin-top:0;
+  margin-top:8rem;
   padding-top:0;
   line-height: normal;
   margin-bottom: 2rem;
@@ -236,16 +240,9 @@ h3 {
   padding-top:0;
 }
 
-li.rules{
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid black;
-  border-bottom-color: inherit;
-}
 
-li.rules:last-of-type{
-  border-bottom: none;
-}
+
+
 
 // li::before{
 //   position: relative;
